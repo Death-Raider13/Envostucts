@@ -1,14 +1,20 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { cn } from "@/lib/utils"
 
 export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
   const pathname = usePathname()
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   const navigationItems = [
     { id: "home", label: "Home", href: "/" },
@@ -17,6 +23,7 @@ export function SiteHeader() {
     { id: "projects", label: "Projects", href: "/projects" },
     { id: "team", label: "Team", href: "/team" },
     { id: "testimonials", label: "Testimonials", href: "/testimonials" },
+    { id: "careers", label: "Careers", href: "/careers" },
     { id: "contact", label: "Contact", href: "/contact" },
   ]
 
@@ -28,7 +35,7 @@ export function SiteHeader() {
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-lg z-50">
+    <header className="bg-white sticky top-0 z-50 border-b shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
@@ -39,25 +46,22 @@ export function SiteHeader() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              {navigationItems.map((item) => (
-                <Link
-                  key={item.id}
-                  href={item.href}
-                  className={`px-3 py-2 text-sm font-medium transition-colors ${
-                    isActive(item.href)
-                      ? "text-blue-600 border-b-2 border-blue-600"
-                      : "text-gray-900 hover:text-blue-600"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ))}
-              <Link href="/contact">
-                <Button className="bg-blue-600 hover:bg-blue-700">Get Quote</Button>
+          <div className="hidden md:flex items-center space-x-6">
+            {navigationItems.map((item) => (
+              <Link
+                key={item.id}
+                href={item.href}
+                className={cn(
+                  "text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium",
+                  isActive(item.href) ? "text-blue-600" : "",
+                )}
+              >
+                {item.label}
               </Link>
-            </div>
+            ))}
+            <Link href="/contact">
+              <Button className="bg-blue-600 hover:bg-blue-700">Get Quote</Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -78,18 +82,24 @@ export function SiteHeader() {
                 key={item.id}
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className={`block px-3 py-2 text-base font-medium w-full text-left rounded-md ${
+                className={cn(
+                  "block px-3 py-2 text-base font-medium w-full text-left rounded-md",
                   isActive(item.href)
                     ? "text-blue-600 bg-blue-50"
-                    : "text-gray-900 hover:text-blue-600 hover:bg-gray-50"
-                }`}
+                    : "text-gray-900 hover:text-blue-600 hover:bg-gray-50",
+                )}
               >
                 {item.label}
               </Link>
             ))}
+            <div className="px-3 py-2">
+              <Link href="/contact">
+                <Button className="w-full bg-blue-600 hover:bg-blue-700">Get Quote</Button>
+              </Link>
+            </div>
           </div>
         </div>
       )}
-    </nav>
+    </header>
   )
 }

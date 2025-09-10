@@ -1,36 +1,20 @@
 import { type NextRequest, NextResponse } from "next/server"
 
-export async function POST(request: NextRequest) {
+export async function POST(req: NextRequest) {
   try {
-    const body = await request.json()
+    const body = await req.json()
     const { name, email, phone, subject, message } = body
 
-    // Validate required fields
     if (!name || !email || !subject || !message) {
-      return NextResponse.json({ error: "Missing required fields" }, { status: 400 })
+      return NextResponse.json({ message: "All fields are required", success: false }, { status: 400 })
     }
 
-    // Here you would typically:
-    // 1. Send email using a service like SendGrid, Resend, or Nodemailer
-    // 2. Save to database
-    // 3. Send to CRM system
+    // Simulate sending an email (replace with actual email sending logic)
+    console.log("Sending email:", { name, email, phone, subject, message })
 
-    // For now, we'll just log the data and return success
-    console.log("Contact form submission:", {
-      name,
-      email,
-      phone,
-      subject,
-      message,
-      timestamp: new Date().toISOString(),
-    })
-
-    // Simulate processing time
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-
-    return NextResponse.json({ message: "Message sent successfully" }, { status: 200 })
+    return NextResponse.json({ message: "Message sent successfully!", success: true }, { status: 200 })
   } catch (error) {
-    console.error("Contact form error:", error)
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 })
+    console.error("Error processing contact form:", error)
+    return NextResponse.json({ message: "Failed to send message", success: false }, { status: 500 })
   }
 }

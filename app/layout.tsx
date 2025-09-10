@@ -12,27 +12,14 @@ import { Toaster } from "@/components/ui/toaster"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: {
-    default: "Envostructs - Premier Construction & Engineering Solutions",
-    template: "%s | Envostructs",
-  },
+  title: "Envostructs Nigeria Limited - Engineering & Construction Services",
   description:
-    "Leading construction and engineering company specializing in residential, commercial, and industrial projects. Expert structural engineering, project management, and sustainable building solutions.",
-  keywords: [
-    "construction",
-    "engineering",
-    "structural engineering",
-    "project management",
-    "residential construction",
-    "commercial construction",
-    "industrial construction",
-    "sustainable building",
-    "architecture",
-    "building design",
-  ],
-  authors: [{ name: "Envostructs Team" }],
-  creator: "Envostructs",
-  publisher: "Envostructs",
+    "Leading engineering consultancy and construction company in Nigeria. Specializing in geotechnical services, design, construction, and project management since 2008.",
+  keywords:
+    "engineering, construction, geotechnical, Nigeria, Lagos, civil engineering, structural engineering, project management",
+  authors: [{ name: "Envostructs Nigeria Limited" }],
+  creator: "Envostructs Nigeria Limited",
+  publisher: "Envostructs Nigeria Limited",
   formatDetection: {
     email: false,
     address: false,
@@ -43,27 +30,27 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://envostructs.com",
-    siteName: "Envostructs",
-    title: "Envostructs - Premier Construction & Engineering Solutions",
+    title: "Envostructs Nigeria Limited - Engineering & Construction Services",
     description:
-      "Leading construction and engineering company specializing in residential, commercial, and industrial projects.",
+      "Leading engineering consultancy and construction company in Nigeria. Specializing in geotechnical services, design, construction, and project management since 2008.",
+    url: "https://envostructs.com",
+    siteName: "Envostructs Nigeria Limited",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Envostructs - Construction & Engineering",
+        alt: "Envostructs Nigeria Limited - Engineering & Construction",
       },
     ],
+    locale: "en_NG",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Envostructs - Premier Construction & Engineering Solutions",
+    title: "Envostructs Nigeria Limited - Engineering & Construction Services",
     description:
-      "Leading construction and engineering company specializing in residential, commercial, and industrial projects.",
+      "Leading engineering consultancy and construction company in Nigeria. Specializing in geotechnical services, design, construction, and project management since 2008.",
     images: ["/og-image.jpg"],
     creator: "@envostructs",
   },
@@ -95,29 +82,27 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "Envostructs",
-              description: "Premier construction and engineering solutions company",
+              name: "Envostructs Nigeria Limited",
+              description: "Leading engineering consultancy and construction company in Nigeria",
               url: "https://envostructs.com",
               logo: "https://envostructs.com/logo.png",
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+1-555-123-4567",
+                telephone: "+234-08034770098",
                 contactType: "customer service",
                 availableLanguage: "English",
+                areaServed: "NG",
               },
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "123 Construction Ave",
-                addressLocality: "Building City",
-                addressRegion: "BC",
-                postalCode: "12345",
-                addressCountry: "US",
+                streetAddress: "51, Akanro Street, Off Apapa-Oshodi Express Road",
+                addressLocality: "Lagos",
+                addressRegion: "Lagos State",
+                postalCode: "100001",
+                addressCountry: "NG",
               },
-              sameAs: [
-                "https://facebook.com/envostructs",
-                "https://twitter.com/envostructs",
-                "https://linkedin.com/company/envostructs",
-              ],
+              foundingDate: "2008-06",
+              sameAs: ["https://linkedin.com/company/envostructs", "https://facebook.com/envostructs"],
             }),
           }}
         />

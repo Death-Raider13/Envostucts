@@ -11,8 +11,10 @@ export function SiteFooter() {
     { id: "team", label: "Our Team", href: "/team" },
     { id: "testimonials", label: "Testimonials", href: "/testimonials" },
     { id: "contact", label: "Contact", href: "/contact" },
-   
+    { id: "careers", label: "Careers", href: "/careers" },
   ]
+
+  const currentYear = new Date().getFullYear()
 
   return (
     <footer className="bg-gray-900 text-white py-12">
@@ -21,8 +23,7 @@ export function SiteFooter() {
           <div className="col-span-2">
             <h3 className="text-2xl font-bold mb-4">ENVOSTRUCTS NIGERIA LIMITED</h3>
             <p className="text-gray-300 mb-6">
-              Accredited Continent International Hotels Design/Construction Consultants & Contractors. Providing
-              superior engineering solutions since 2008.
+              Leading engineering consultancy and construction company providing superior solutions since 2008.
             </p>
             <div className="flex space-x-4">
               <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
@@ -65,8 +66,7 @@ export function SiteFooter() {
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
           <p className="text-gray-300">
-            © 2025 Envostructs Nigeria Limited. All rights reserved. | Registered: June 2008 | RC Number: [Company
-            Registration Number]
+            © {currentYear} Envostructs Nigeria Limited. All rights reserved. | Registered: June 2008
           </p>
         </div>
       </div>
