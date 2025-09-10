@@ -1,30 +1,20 @@
 "use client"
-import Head from "next/head"
-import Script from "next/script
-export default function EnvostructsWebsite() {
-  return (
-    <>
-      <Head>
-        <title>Envostructs Nigeria Limited</title>
-      </Head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CXX7HW3QDT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-CXX7HW3QDT');
-</script>
-import { useState, useEffect } from "react"
+import { useState } from "react"
+import Script from "next/script"
 import { Button } from "@/components/ui/button"
-import WhatsAppPopup from "@/components/WhatsAppPopup"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useToast } from "@/hooks/use-toast"
+import Link from "next/link"
+import { ScrollToTop } from "@/components/scroll-to-top"
+import { StatsCounter } from "@/components/stats-counter"
+import { ProjectCard } from "@/components/project-card"
+import { LoadingSpinner } from "@/components/loading-spinner"
+import { submitContactForm } from "./actions"
 import {
   Building2,
   Users,
@@ -34,83 +24,50 @@ import {
   MapPin,
   CheckCircle,
   ArrowRight,
-  Menu,
-  X,
   Wrench,
   Hammer,
   Ruler,
   HardHat,
   Truck,
   Droplets,
-  Calendar,
   Star,
-  TrendingUp,
-  Shield,
-  Clock,
-  Target,
-  Globe,
-  MessageSquare
 } from "lucide-react"
-import { useActionState } from "react"
-import { submitContactForm } from "./actions"
 
 export default function EnvostructsWebsite() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState("home")
   const { toast } = useToast()
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const [state, formAction, isPending] = useActionState(submitContactForm, null)
+  const handleFormSubmit = async (formData: FormData) => {
+    setIsSubmitting(true)
+    try {
+      const result = await submitContactForm(null, formData)
 
-  // Handle toast messages based on server action state
-  useEffect(() => {
-    if (state?.message) {
-      toast({
-        title: state.success ? "Success!" : "Error!",
-        description: state.message,
-        variant: state.success ? "default" : "destructive",
-      })
-    }
-  }, [state, toast])
-
-  // Handle smooth scrolling and active section tracking
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ["home", "about", "services", "projects", "team", "blog", "contact"]
-      const scrollPosition = window.scrollY + 100
-
-      for (const section of sections) {
-        const element = document.getElementById(section)
-        if (element) {
-          const { offsetTop, offsetHeight } = element
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section)
-            break
-          }
-        }
+      if (result.success) {
+        toast({
+          title: "Success!",
+          description: result.message,
+          variant: "default",
+        })
+        // Reset form
+        const form = document.querySelector("form") as HTMLFormElement
+        form?.reset()
+      } else {
+        toast({
+          title: "Error!",
+          description: result.message,
+          variant: "destructive",
+        })
       }
+    } catch (error) {
+      toast({
+        title: "Error!",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      })
+    } finally {
+      setIsSubmitting(false)
     }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
-    setIsMenuOpen(false)
   }
-
-  const navigationItems = [
-    { id: "home", label: "Home" },
-    { id: "about", label: "About" },
-    { id: "services", label: "Services" },
-    { id: "projects", label: "Projects" },
-    { id: "team", label: "Team" },
-    { id: "blog", label: "Blog" },
-    { id: "contact", label: "Contact" },
-  ]
 
   const services = [
     {
@@ -187,51 +144,6 @@ export default function EnvostructsWebsite() {
     },
   ]
 
-  const projects = [
-    {
-      title: "Swiss International Hotel Abeokuta",
-      description: "15 Storey Hotel Structure",
-      value: "₦6.5 Billion",
-      category: "Hospitality",
-      status: "Completed",
-    },
-    {
-      title: "Detached Duplex Units",
-      description: "4 Units at Gudu GRA Lagos",
-      value: "₦300 Million",
-      category: "Residential",
-      status: "Ongoing",
-    },
-    {
-      title: "Soilless Farm Lab Hostel",
-      description: "12 Blocks at Awowo Village",
-      value: "₦850 Million",
-      category: "Educational",
-      status: "Completed",
-    },
-    {
-      title: "Community Bridge",
-      description: "Ibeju Lekki - Iba-Oloja Link",
-      value: "₦750 Million",
-      category: "Infrastructure",
-      status: "Design Phase",
-    },
-    {
-      title: "Lekki Free Zone Roads",
-      description: "Road N5 & E6A Construction",
-      value: "₦464 Million",
-      category: "Infrastructure",
-      status: "Completed",
-    },
-    {
-      title: "Swiss Budget Hotel",
-      description: "Office Complex Conversion",
-      value: "₦5.2 Billion",
-      category: "Hospitality",
-      status: "Completed",
-    },
-  ]
-
   const teamMembers = [
     {
       name: "Engr. S.I.A. Edidi",
@@ -272,73 +184,23 @@ export default function EnvostructsWebsite() {
     },
   ]
 
-
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-lg z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <h1 className="text-2xl font-bold text-blue-900">ENVOSTRUCTS</h1>
-                <p className="text-xs text-gray-600">NIGERIA LIMITED</p>
-              </div>
-            </div>
-
-            {/* Desktop Navigation */}
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                {navigationItems.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className={`px-3 py-2 text-sm font-medium transition-colors shadow ${
-                      activeSection === item.id
-                        ? "text-blue-600 border-b-2 border-blue-600"
-                        : "text-gray-900 hover:text-blue-600"
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                ))}
-                <Button onClick={() => scrollToSection("contact")} className="bg-blue-600 hover:bg-blue-700">
-                  Get Quote
-                </Button>
-              </div>
-            </div>
-
-            {/* Mobile menu button */}
-            <div className="md:hidden">
-              <Button variant="ghost" size="sm" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
-                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </Button>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-white border-t">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {navigationItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50 w-full text-left"
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-      </nav>
+      {/* Google Analytics Scripts */}
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-CXX7HW3QDT" />
+      <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-CXX7HW3QDT');
+        `}
+      </Script>
 
       {/* Hero Section */}
       <section
         id="home"
-        className="relative bg-gradient-to-br from-blue-900 via-blue-600 to-cyan-500 text-white py-20 mt-16"
+        className="relative bg-gradient-to-br from-blue-900 via-blue-600 to-cyan-500 text-white py-20 pt-32 md:pt-40"
       >
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -363,7 +225,7 @@ export default function EnvostructsWebsite() {
             </div>
 
             <Button
-              onClick={() => scrollToSection("contact")}
+              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               size="lg"
               className="bg-white text-blue-900 hover:bg-gray-100 font-semibold"
             >
@@ -438,39 +300,27 @@ export default function EnvostructsWebsite() {
               <div className="space-y-4">
                 <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
                   <span className="font-medium">Share Capital</span>
-                  <Badge variant="secondary" className="text-blue-600 bg-blue-100">
-                    ₦11,000,000
-                  </Badge>
+                  <StatsCounter end={11} suffix="M ₦" />
                 </div>
                 <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
                   <span className="font-medium">Staff Strength</span>
-                  <Badge variant="secondary" className="text-blue-600 bg-blue-100">
-                    20+ Professionals
-                  </Badge>
+                  <StatsCounter end={20} suffix="+ Professionals" />
                 </div>
                 <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
                   <span className="font-medium">Bank Projects</span>
-                  <Badge variant="secondary" className="text-blue-600 bg-blue-100">
-                    10+ Completed
-                  </Badge>
+                  <StatsCounter end={10} suffix="+ Completed" />
                 </div>
                 <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
                   <span className="font-medium">Government Projects</span>
-                  <Badge variant="secondary" className="text-blue-600 bg-blue-100">
-                    4+ Completed
-                  </Badge>
+                  <StatsCounter end={4} suffix="+ Completed" />
                 </div>
                 <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
                   <span className="font-medium">Commercial Projects</span>
-                  <Badge variant="secondary" className="text-blue-600 bg-blue-100">
-                    15+ Completed
-                  </Badge>
+                  <StatsCounter end={15} suffix="+ Completed" />
                 </div>
                 <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
                   <span className="font-medium">Individual Projects</span>
-                  <Badge variant="secondary" className="text-blue-600 bg-blue-100">
-                    30+ Completed
-                  </Badge>
+                  <StatsCounter end={30} suffix="+ Completed" />
                 </div>
               </div>
             </div>
@@ -545,28 +395,78 @@ export default function EnvostructsWebsite() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="flex items-center justify-between mb-2">
-                    <Badge variant="outline">{project.category}</Badge>
-                    <Badge variant={project.status === "Completed" ? "default" : "secondary"}>{project.status}</Badge>
-                  </div>
-                  <CardTitle className="text-lg">{project.title}</CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-2xl font-bold text-blue-600">{project.value}</p>
-                </CardContent>
-              </Card>
-            ))}
+            <ProjectCard
+              title="Swiss International Hotel Abeokuta"
+              description="15 Storey Hotel Structure"
+              value="₦6.5 Billion"
+              category="Hospitality"
+              status="Completed"
+              location="Abeokuta, Ogun State"
+              year="2023"
+              slug="swiss-international-hotel-abeokuta"
+              image="/placeholder.svg?height=200&width=400&text=Swiss+Hotel"
+            />
+            <ProjectCard
+              title="Detached Duplex Units"
+              description="4 Units at Gudu GRA Lagos"
+              value="₦300 Million"
+              category="Residential"
+              status="Ongoing"
+              location="Lagos State"
+              year="2024"
+              image="/placeholder.svg?height=200&width=400&text=Duplex+Units"
+            />
+            <ProjectCard
+              title="Soilless Farm Lab Hostel"
+              description="12 Blocks at Awowo Village"
+              value="₦850 Million"
+              category="Educational"
+              status="Completed"
+              location="Abeokuta"
+              year="2022"
+              slug="soilless-farm-lab-hostel"
+              image="/placeholder.svg?height=200&width=400&text=Farm+Hostel"
+            />
+            <ProjectCard
+              title="Community Bridge"
+              description="Ibeju Lekki - Iba-Oloja Link"
+              value="₦750 Million"
+              category="Infrastructure"
+              status="Design Phase"
+              location="Lagos State"
+              year="2024"
+              slug="community-bridge-project"
+              image="/placeholder.svg?height=200&width=400&text=Bridge+Project"
+            />
+            <ProjectCard
+              title="Lekki Free Zone Roads"
+              description="Road N5 & E6A Construction"
+              value="₦464 Million"
+              category="Infrastructure"
+              status="Completed"
+              location="Lagos State"
+              year="2023"
+              image="/placeholder.svg?height=200&width=400&text=Road+Construction"
+            />
+            <ProjectCard
+              title="Swiss Budget Hotel"
+              description="Office Complex Conversion"
+              value="₦5.2 Billion"
+              category="Hospitality"
+              status="Completed"
+              location="Lagos State"
+              year="2022"
+              image="/placeholder.svg?height=200&width=400&text=Budget+Hotel"
+            />
           </div>
 
           <div className="text-center mt-12">
-            <Button onClick={() => scrollToSection("contact")} size="lg" className="bg-blue-600 hover:bg-blue-700">
-              View All Projects
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+            <Link href="/projects">
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+                View All Projects
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -595,6 +495,75 @@ export default function EnvostructsWebsite() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
+            <p className="text-xl text-gray-600">Testimonials from satisfied clients</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Dr. Adebayo Ogundimu",
+                position: "Managing Director, Swiss International Hotels",
+                testimonial:
+                  "Envostructs exceeded our expectations in every aspect of the Swiss International Hotel project. Their engineering excellence and project management were remarkable.",
+                rating: 5,
+              },
+              {
+                name: "Prof. Olumide Adeyemi",
+                position: "Director, Soilless Farm Laboratory",
+                testimonial:
+                  "The team demonstrated exceptional understanding of our unique requirements. The sustainable construction practices were particularly impressive.",
+                rating: 5,
+              },
+              {
+                name: "Engr. Funmi Adebisi",
+                position: "Lagos State Ministry of Works",
+                testimonial:
+                  "Their comprehensive approach to environmental impact assessment and community engagement set them apart. Highly professional team.",
+                rating: 5,
+              },
+            ].map((testimonial, index) => (
+              <Card key={index} className="hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full flex items-center justify-center text-white mr-4">
+                      <Users className="w-6 h-6" />
+                    </div>
+                    <div className="flex">
+                      {Array.from({ length: testimonial.rating }, (_, i) => (
+                        <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                      ))}
+                    </div>
+                  </div>
+                  <CardTitle className="text-lg">{testimonial.name}</CardTitle>
+                  <CardDescription>{testimonial.position}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-700 italic">"{testimonial.testimonial}"</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link href="/testimonials">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white bg-transparent"
+              >
+                View All Testimonials
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -662,14 +631,18 @@ export default function EnvostructsWebsite() {
                 <CardDescription>Fill out the form below and we'll get back to you within 24 hours</CardDescription>
               </CardHeader>
               <CardContent>
-                <form action={formAction} className="space-y-6">
+                <form
+                  onSubmit={async (e) => {
+                    e.preventDefault()
+                    const formData = new FormData(e.currentTarget)
+                    await handleFormSubmit(formData)
+                  }}
+                  className="space-y-6"
+                >
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="fullName">Full Name *</Label>
                       <Input id="fullName" name="fullName" placeholder="Your full name" required className="mt-1" />
-                      {state?.errors?.fullName && (
-                        <p className="text-red-500 text-sm mt-1">{state.errors.fullName.join(", ")}</p>
-                      )}
                     </div>
                     <div>
                       <Label htmlFor="phone">Phone Number *</Label>
@@ -681,9 +654,6 @@ export default function EnvostructsWebsite() {
                         required
                         className="mt-1"
                       />
-                      {state?.errors?.phone && (
-                        <p className="text-red-500 text-sm mt-1">{state.errors.phone.join(", ")}</p>
-                      )}
                     </div>
                   </div>
 
@@ -697,9 +667,6 @@ export default function EnvostructsWebsite() {
                       required
                       className="mt-1"
                     />
-                    {state?.errors?.email && (
-                      <p className="text-red-500 text-sm mt-1">{state.errors.email.join(", ")}</p>
-                    )}
                   </div>
 
                   <div>
@@ -716,9 +683,6 @@ export default function EnvostructsWebsite() {
                         <SelectItem value="highway">Highway Design</SelectItem>
                         <SelectItem value="water-environmental">Water & Environmental</SelectItem>
                       </SelectContent>
-                      {state?.errors?.service && (
-                        <p className="text-red-500 text-sm mt-1">{state.errors.service.join(", ")}</p>
-                      )}
                     </Select>
                   </div>
 
@@ -732,20 +696,26 @@ export default function EnvostructsWebsite() {
                       required
                       className="mt-1"
                     />
-                    {state?.errors?.projectDetails && (
-                      <p className="text-red-500 text-sm mt-1">{state.errors.projectDetails.join(", ")}</p>
-                    )}
                   </div>
 
-                  <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700" size="lg" disabled={isPending}>
-                    {isPending ? "Sending Request..." : "Send Consultation Request"}
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                  <Button
+                    type="submit"
+                    className="w-full bg-blue-600 hover:bg-blue-700"
+                    size="lg"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <LoadingSpinner size="sm" className="mr-2" />
+                        Sending Request...
+                      </>
+                    ) : (
+                      <>
+                        Send Consultation Request
+                        <ArrowRight className="ml-2 h-5 w-5" />
+                      </>
+                    )}
                   </Button>
-                  {state?.message && (
-                    <p className={`mt-4 text-center ${state.success ? "text-green-600" : "text-red-600"}`}>
-                      {state.message}
-                    </p>
-                  )}
                 </form>
               </CardContent>
             </Card>
@@ -753,65 +723,8 @@ export default function EnvostructsWebsite() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="col-span-2">
-              <h3 className="text-2xl font-bold mb-4">ENVOSTRUCTS NIGERIA LIMITED</h3>
-              <p className="text-gray-300 mb-6">
-                Accredited Continent International Hotels Design/Construction Consultants & Contractors. Providing
-                superior engineering solutions since 2008.
-              </p>
-              <div className="flex space-x-4">
-                <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
-                  <Phone className="w-5 h-5" />
-                </div>
-                <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
-                  <MapPin className="w-5 h-5" />
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Services</h4>
-              <ul className="space-y-2 text-gray-300">
-                <li>Geotechnical Services</li>
-                <li>Design & Documentation</li>
-                <li>Construction Works</li>
-                <li>Project Management</li>
-                <li>Highway Design</li>
-                <li>Water & Environmental</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-gray-300">
-                {navigationItems.map((item) => (
-                  <li key={item.id}>
-                    <button onClick={() => scrollToSection(item.id)} className="hover:text-white transition-colors">
-                      {item.label}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-            <p className="text-gray-300">
-              © 2025 Envostructs Nigeria Limited. All rights reserved. | Registered: June 2008 | RC Number: [Company
-              Registration Number]
-            </p>
-          </div>
-        </div>
-         <WhatsAppPopup />
-      </footer>
+      {/* Scroll To Top */}
+      <ScrollToTop />
     </div>
-   </>
   )
 }

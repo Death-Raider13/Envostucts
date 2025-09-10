@@ -1,4 +1,3 @@
-import Head from "next/head"
 import { BlogPostCard } from "@/components/blog-post-card"
 
 export default function BlogPage() {
@@ -32,19 +31,11 @@ export default function BlogPage() {
       slug: "project-management-best-practices",
     },
   ]
-  <Head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CXX7HW3QDT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-CXX7HW3QDT');
-</script>
-  </Head>
 
   return (
-    <main className="min-h-screen bg-gray-50 pt-24 pb-16">
+    <div className="min-h-screen bg-gray-50 pt-24 pb-16">
+      {" "}
+      {/* Adjusted padding for fixed header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Blog</h1>
@@ -59,6 +50,6 @@ export default function BlogPage() {
           ))}
         </div>
       </div>
-    </main>
+    </div>
   )
 }
