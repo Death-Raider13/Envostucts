@@ -1,38 +1,72 @@
 import type React from "react"
-import "./globals.css"
+import type { Metadata } from "next"
 import { Inter } from "next/font/google"
+import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { Toaster } from "@/components/ui/toaster"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
-import WhatsAppPopup from "@/components/WhatsappPopup"
+import { WhatsAppPopup } from "@/components/WhatsAppPopup"
 import { ScrollToTop } from "@/components/scroll-to-top"
+import { Toaster } from "@/components/ui/toaster"
 
 const inter = Inter({ subsets: ["latin"] })
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
-    default: "Envostructs Nigeria Limited - Design/Construction Consultants & Contractors",
-    template: "%s | Envostructs Nigeria Limited",
+    default: "Envostructs - Premier Construction & Engineering Solutions",
+    template: "%s | Envostructs",
   },
   description:
-    "Accredited Continent International Hotels Design/Construction Consultants & Contractors. Providing superior engineering solutions since 2008. Specializing in geotechnical services, construction works, and project management across Nigeria.",
+    "Leading construction and engineering company specializing in residential, commercial, and industrial projects. Expert structural engineering, project management, and sustainable building solutions.",
   keywords: [
     "construction",
     "engineering",
-    "geotechnical",
-    "design",
-    "project management",
-    "Nigeria",
-    "Lagos",
-    "civil engineering",
     "structural engineering",
-    "hospitality construction",
-    "infrastructure development",
+    "project management",
+    "residential construction",
+    "commercial construction",
+    "industrial construction",
+    "sustainable building",
+    "architecture",
+    "building design",
   ],
-  authors: [{ name: "Envostructs Nigeria Limited" }],
-  creator: "Envostructs Nigeria Limited",
-  publisher: "Envostructs Nigeria Limited",
+  authors: [{ name: "Envostructs Team" }],
+  creator: "Envostructs",
+  publisher: "Envostructs",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL("https://envostructs.com"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://envostructs.com",
+    siteName: "Envostructs",
+    title: "Envostructs - Premier Construction & Engineering Solutions",
+    description:
+      "Leading construction and engineering company specializing in residential, commercial, and industrial projects.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Envostructs - Construction & Engineering",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Envostructs - Premier Construction & Engineering Solutions",
+    description:
+      "Leading construction and engineering company specializing in residential, commercial, and industrial projects.",
+    images: ["/og-image.jpg"],
+    creator: "@envostructs",
+  },
   robots: {
     index: true,
     follow: true,
@@ -44,42 +78,57 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
-  openGraph: {
-    type: "website",
-    locale: "en_NG",
-    url: "https://envostructs.com",
-    title: "Envostructs Nigeria Limited",
-    description: "Design/Construction Consultants & Contractors providing superior engineering solutions since 2008",
-    siteName: "Envostructs Nigeria Limited",
-    images: [
-      {
-        url: "/placeholder.svg?height=630&width=1200&text=Envostructs+Nigeria",
-        width: 1200,
-        height: 630,
-        alt: "Envostructs Nigeria Limited",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Envostructs Nigeria Limited",
-    description: "Design/Construction Consultants & Contractors",
-    images: ["/placeholder.svg?height=630&width=1200&text=Envostructs+Nigeria"],
-  },
-  verification: {
-    google: "your-google-verification-code",
-  },
     generator: 'v0.app'
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Envostructs",
+              description: "Premier construction and engineering solutions company",
+              url: "https://envostructs.com",
+              logo: "https://envostructs.com/logo.png",
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+1-555-123-4567",
+                contactType: "customer service",
+                availableLanguage: "English",
+              },
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "123 Construction Ave",
+                addressLocality: "Building City",
+                addressRegion: "BC",
+                postalCode: "12345",
+                addressCountry: "US",
+              },
+              sameAs: [
+                "https://facebook.com/envostructs",
+                "https://twitter.com/envostructs",
+                "https://linkedin.com/company/envostructs",
+              ],
+            }),
+          }}
+        />
+      </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          <SiteHeader />
-          <main className="min-h-screen">{children}</main>
-          <SiteFooter />
+          <div className="relative flex min-h-screen flex-col">
+            <SiteHeader />
+            <main className="flex-1">{children}</main>
+            <SiteFooter />
+          </div>
           <WhatsAppPopup />
           <ScrollToTop />
           <Toaster />

@@ -17,6 +17,7 @@ export function ScrollToTop() {
     }
 
     window.addEventListener("scroll", toggleVisibility)
+
     return () => window.removeEventListener("scroll", toggleVisibility)
   }, [])
 
@@ -34,11 +35,13 @@ export function ScrollToTop() {
   return (
     <Button
       onClick={scrollToTop}
-      className="fixed bottom-20 left-4 z-40 rounded-full p-3 shadow-lg bg-blue-600 hover:bg-blue-700 transition-all duration-300"
-      size="sm"
+      className="fixed bottom-20 right-4 z-40 h-12 w-12 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg transition-all duration-300 hover:scale-110"
+      size="icon"
       aria-label="Scroll to top"
     >
-      <ArrowUp className="w-4 h-4" />
+      <ArrowUp className="h-5 w-5" />
     </Button>
   )
 }
+
+export default ScrollToTop
