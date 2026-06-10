@@ -1,6 +1,13 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+/* ENVOSTRUCTS brand tokens */
+:root {
+  --brand-navy: #003366;
+  --brand-amber: #F59E0B;
+  --brand-navy-dark: #002244;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 :root {

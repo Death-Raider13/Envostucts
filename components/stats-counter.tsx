@@ -39,7 +39,8 @@ export function StatsCounter({ end, duration = 2000, suffix = "", prefix = "" }:
 
     const animate = (currentTime: number) => {
       if (!startTime) startTime = currentTime
-      const progress = Math.min((currentTime - startTime) / duration, 1)
+      const rawProgress = Math.min((currentTime - startTime) / duration, 1)
+      const progress = 1 - Math.pow(1 - rawProgress, 3)
 
       setCount(Math.floor(progress * end))
 

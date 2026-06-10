@@ -4,25 +4,25 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --background: oklch(0.99 0.005 106);
+  --foreground: oklch(0.09 0.02 258);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  --card-foreground: oklch(0.09 0.02 258);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --popover-foreground: oklch(0.09 0.02 258);
+  --primary: oklch(0.47 0.15 258);
+  --primary-foreground: oklch(0.98 0.01 106);
+  --secondary: oklch(0.96 0.01 258);
+  --secondary-foreground: oklch(0.09 0.02 258);
+  --muted: oklch(0.96 0.01 258);
+  --muted-foreground: oklch(0.45 0.02 258);
+  --accent: oklch(0.18 0.14 192);
+  --accent-foreground: oklch(0.98 0.01 106);
+  --destructive: oklch(0.65 0.15 27);
+  --destructive-foreground: oklch(0.98 0.01 106);
+  --border: oklch(0.92 0.01 258);
+  --input: oklch(0.92 0.01 258);
+  --ring: oklch(0.47 0.15 258);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -40,25 +40,25 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
+  --background: oklch(0.04 0.02 258);
+  --foreground: oklch(0.98 0.01 106);
+  --card: oklch(0.06 0.02 258);
+  --card-foreground: oklch(0.98 0.01 106);
+  --popover: oklch(0.06 0.02 258);
+  --popover-foreground: oklch(0.98 0.01 106);
+  --primary: oklch(0.67 0.15 258);
+  --primary-foreground: oklch(0.04 0.02 258);
+  --secondary: oklch(0.12 0.02 258);
+  --secondary-foreground: oklch(0.98 0.01 106);
+  --muted: oklch(0.12 0.02 258);
+  --muted-foreground: oklch(0.65 0.02 258);
+  --accent: oklch(0.28 0.14 192);
+  --accent-foreground: oklch(0.98 0.01 106);
+  --destructive: oklch(0.75 0.15 27);
+  --destructive-foreground: oklch(0.98 0.01 106);
+  --border: oklch(0.12 0.02 258);
+  --input: oklch(0.12 0.02 258);
+  --ring: oklch(0.67 0.15 258);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -122,4 +122,93 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* =============================================
+   ENVOSTRUCTS LUXURY DESIGN SYSTEM
+   ============================================= */
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 50%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Section typography utilities */
+.section-label {
+  display: block;
+  color: rgb(245, 158, 11);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-size: 1.875rem;
+  font-weight: 900;
+  color: rgb(17, 24, 39);
+  line-height: 1.15;
+}
+@media (min-width: 768px) {
+  .section-title { font-size: 2.5rem; }
+}
+@media (min-width: 1024px) {
+  .section-title { font-size: 3rem; }
+}
+
+.section-title-light {
+  font-size: 1.875rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.15;
+}
+@media (min-width: 768px) {
+  .section-title-light { font-size: 2.5rem; }
+}
+@media (min-width: 1024px) {
+  .section-title-light { font-size: 3rem; }
+}
+
+.section-desc {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: rgb(107, 114, 128);
+}
+
+/* Scroll-reveal base states (before intersection) */
+.reveal-up    { opacity: 0; transform: translateY(40px); }
+.reveal-down  { opacity: 0; transform: translateY(-40px); }
+.reveal-left  { opacity: 0; transform: translateX(40px); }
+.reveal-right { opacity: 0; transform: translateX(-40px); }
+.reveal-scale { opacity: 0; transform: scale(0.92); }
+
+/* Revealed state — applied by Reveal.tsx via IntersectionObserver */
+.reveal-visible {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+/* Dark grid texture (for hero overlays and dark sections) */
+.grid-texture {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Marquee animation for client strip */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
 }

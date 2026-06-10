@@ -8,10 +8,18 @@ import { SiteFooter } from "@/components/site-footer"
 import { WhatsAppPopup } from "@/components/WhatsAppPopup"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { Toaster } from "@/components/ui/toaster"
+import { LoadingScreen } from "@/components/LoadingScreen"
+import { CookieBanner } from "@/components/CookieBanner"
+import { QuoteWidget } from "@/components/QuoteWidget"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
   title: "Envostructs Nigeria Limited - Engineering & Construction Services",
   description:
     "Leading engineering consultancy and construction company in Nigeria. Specializing in geotechnical services, design, construction, and project management since 2008.",
@@ -114,8 +122,11 @@ export default function RootLayout({
             <main className="flex-1">{children}</main>
             <SiteFooter />
           </div>
+          <LoadingScreen />
+          <QuoteWidget />
           <WhatsAppPopup />
           <ScrollToTop />
+          <CookieBanner />
           <Toaster />
         </ThemeProvider>
       </body>
