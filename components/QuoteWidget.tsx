@@ -1,11 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import { X, ChevronRight, ChevronLeft, MessageCircle, Building, Road, Home, GraduationCap, Wrench, FlaskConical } from "lucide-react"
+import { X, ChevronRight, ChevronLeft, MessageCircle, Building, Route, Home, GraduationCap, Wrench, FlaskConical } from "lucide-react"
 
 const PROJECT_TYPES = [
   { label: "Hotel / Hospitality", icon: Building, msg: "Hotel/Hospitality project" },
-  { label: "Road / Infrastructure", icon: Road, msg: "Road or infrastructure project" },
+  { label: "Road / Infrastructure", icon: Route, msg: "Road or infrastructure project" },
   { label: "Residential Building", icon: Home, msg: "Residential building project" },
   { label: "Educational Facility", icon: GraduationCap, msg: "Educational facility project" },
   { label: "Structural Design", icon: Wrench, msg: "Structural design project" },
