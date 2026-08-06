@@ -46,14 +46,18 @@ export function LoadingScreen() {
       <div className="relative flex flex-col items-center gap-5">
         {/* Logo card */}
         <div
-          className="bg-white rounded-2xl p-4 shadow-2xl"
           style={{
             opacity: 1,
             transform: "scale(1)",
             animation: "none",
           }}
         >
-          <img src="/logo.png" alt="ENVOSTRUCTS Nigeria Limited" style={{ height: "64px", width: "auto" }} />
+          <img 
+            src="/logo-transparent.png" 
+            alt="ENVOSTRUCTS Nigeria Limited" 
+            className="brightness-0 invert drop-shadow-xl"
+            style={{ height: "72px", width: "auto" }} 
+          />
         </div>
 
         {/* Brand text */}

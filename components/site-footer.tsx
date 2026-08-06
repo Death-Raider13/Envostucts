@@ -113,8 +113,8 @@ export function SiteFooter() {
           {/* Brand column */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-5">
-              <div className="bg-white rounded-xl p-1.5 shrink-0">
-                <img src="/logo.png" alt="ENVOSTRUCTS Nigeria Limited" style={{ height: "36px", width: "auto" }} />
+              <div className="shrink-0">
+                <img src="/logo-transparent.png" alt="ENVOSTRUCTS Nigeria Limited" className="brightness-0 invert drop-shadow-md" style={{ height: "42px", width: "auto" }} />
               </div>
               <div>
                 <p className="font-black text-white text-xs tracking-wide">ENVOSTRUCTS</p>

@@ -64,14 +64,15 @@ export function SiteHeader() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0 flex items-center gap-2">
-            <div className={cn(
-              "rounded-lg p-1 transition-all duration-300",
-              transparent ? "bg-white/15 backdrop-blur-sm" : "bg-white"
-            )}>
+            <div className="flex items-center transition-all duration-300">
               <img
-                src="/logo.png"
+                src="/logo-transparent.png"
                 alt="ENVOSTRUCTS Nigeria Limited"
-                style={{ height: "36px", width: "auto" }}
+                className={cn(
+                  "transition-all duration-300",
+                  transparent ? "brightness-0 invert drop-shadow-md" : ""
+                )}
+                style={{ height: "38px", width: "auto" }}
               />
             </div>
             <span className={cn(
