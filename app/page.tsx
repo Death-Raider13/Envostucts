@@ -29,9 +29,9 @@ const IMAGES = {
 }
 
 const HERO_SLIDES = [
-  { img: "/soiless-farm-hostel.jpg",           caption: "Soilless Farm Lab Hostel — ₦850 Million" },
-  { img: "/lekki%20free%20zone.jpg",           caption: "Lekki Free Zone Roads — ₦464 Million" },
-  { img: "/dualization%20of%20ipele.jpg",      caption: "Emuren–Ipele Road Dualization — ₦12.59 Billion" },
+  { img: "/soiless-farm-hostel.jpg", caption: "Soilless Farm Lab Hostel — ₦850 Million" },
+  { img: "/lekki%20free%20zone.jpg", caption: "Lekki Free Zone Roads — ₦464 Million" },
+  { img: "/dualization%20of%20ipele.jpg", caption: "Emuren–Ipele Road Dualization — ₦12.59 Billion" },
 ]
 
 function uiAvatar(name: string) {
@@ -128,10 +128,10 @@ export default function EnvostructsWebsite() {
           }}
         />
         <button onClick={() => goToSlide(heroSlide - 1)} className="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 bg-white/10 hover:bg-white/25 backdrop-blur-sm rounded-full items-center justify-center text-white transition-all border border-white/20" aria-label="Previous slide">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
         </button>
         <button onClick={() => goToSlide(heroSlide + 1)} className="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 bg-white/10 hover:bg-white/25 backdrop-blur-sm rounded-full items-center justify-center text-white transition-all border border-white/20" aria-label="Next slide">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
         </button>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-32 flex flex-col justify-center" style={{ minHeight: "100vh" }}>
           <div className="max-w-3xl">
@@ -508,7 +508,7 @@ export default function EnvostructsWebsite() {
                 <div className="space-y-6">
                   {[
                     { icon: <MapPin className="w-5 h-5 text-white" />, label: "Address", text: "51, Akanro Street, Off Apapa-Oshodi Express Road, by Ilasa Bustop, P.O. Box 2890 Yaba, Lagos, Nigeria" },
-                    { icon: <Phone className="w-5 h-5 text-white" />, label: "Phone", text: "+234-08034770098\n+234-08127744990" },
+                    { icon: <Phone className="w-5 h-5 text-white" />, label: "Phone", text: "+234-08127744990\n+234-08127744990" },
                     { icon: <Mail className="w-5 h-5 text-white" />, label: "Email", text: "envostructs@yahoo.co.uk\nenvostructs@gmail.com" },
                     { icon: <Calendar className="w-5 h-5 text-white" />, label: "Working Hours", text: "Monday – Friday: 8am – 6pm\nSaturday: 9am – 2pm" },
                   ].map((item) => (

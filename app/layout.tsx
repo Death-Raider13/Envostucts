@@ -73,7 +73,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-    generator: 'v0.app'
+  generator: 'v0.app'
 }
 
 export default function RootLayout({
@@ -96,7 +96,7 @@ export default function RootLayout({
               logo: "https://envostructs.com/logo.png",
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+234-08034770098",
+                telephone: "+234-08127744990",
                 contactType: "customer service",
                 availableLanguage: "English",
                 areaServed: "NG",
