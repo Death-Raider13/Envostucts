@@ -23,7 +23,7 @@ const LEADERSHIP = [
     education: "University of Ilorin (B.Eng), Lagos State Polytechnic (ND)",
     memberships: ["COREN", "NSE", "NICE"],
   },
-  {
+  /*{
     name: "Engr. M.A. Adigun",
     position: "Deputy Managing Director",
     credentials: "B.Eng FUTO, MSc Geotechnics UNILAG",
@@ -32,7 +32,7 @@ const LEADERSHIP = [
     specialization: "Geotechnical Engineering",
     education: "FUTO (B.Eng), UNILAG (MSc Geotechnics)",
     memberships: ["COREN", "NSE"],
-  },
+  },*/
   {
     name: "Engr. A.D. Onitilo",
     position: "Executive Director Engineering",
@@ -43,7 +43,7 @@ const LEADERSHIP = [
     education: "University of Lagos (BSc Civil Engineering)",
     memberships: ["COREN", "NSE"],
   },
-  {
+  /*{
     name: "Engr. Y.O. Bankole",
     position: "Director, Mechanical/Electrical",
     credentials: "Mechanical/Agric Engineering ABU Zaria, MSc",
@@ -52,7 +52,7 @@ const LEADERSHIP = [
     specialization: "Mechanical/Electrical Engineering",
     education: "ABU Zaria (Mechanical/Agric Eng), MSc Mechanical Engineering",
     memberships: ["COREN", "NSE"],
-  },
+  },*/
   {
     name: "Adeyemi Adebayo",
     position: "Director, Planning & Research",
