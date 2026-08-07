@@ -233,7 +233,7 @@ export function SiteFooter() {
                 { label: "COREN Licensed", value: "Registered Engineers" },
                 { label: "NSE Members", value: "Nigerian Society of Engineers" },
                 { label: "Established", value: "June 2008, Lagos" },
-                { label: "Share Capital", value: "₦11 Million" },
+                { label: "Share Capital", value: "₦1 Million" },
               ].map(({ label, value }) => (
                 <div key={label} className="border-l-2 border-amber-500/50 pl-3">
                   <p className="text-white/40 text-xs">{label}</p>

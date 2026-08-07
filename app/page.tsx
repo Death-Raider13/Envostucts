@@ -29,9 +29,7 @@ const IMAGES = {
 }
 
 const HERO_SLIDES = [
-  { img: "/swiss-international%20hotel.jpg",  caption: "Swiss International Hotel Abeokuta — ₦6.5 Billion" },
   { img: "/soiless-farm-hostel.jpg",           caption: "Soilless Farm Lab Hostel — ₦850 Million" },
-  { img: "/community%20bridge%20project.jpg",  caption: "Community Bridge Project — Ibeju Lekki" },
   { img: "/lekki%20free%20zone.jpg",           caption: "Lekki Free Zone Roads — ₦464 Million" },
   { img: "/dualization%20of%20ipele.jpg",      caption: "Emuren–Ipele Road Dualization — ₦12.59 Billion" },
 ]
@@ -51,9 +49,9 @@ const SERVICES = [
 
 const TEAM = [
   { name: "Engr. S.I.A. Edidi", position: "Managing Consultant/Director", credentials: "B.Eng Civil Eng, COREN: R6610, NSE: 07462", description: "Former Head of Department at Lagos State Polytechnic. 30+ years in civil/structural engineering." },
-  { name: "Engr. M.A. Adigun", position: "Deputy Managing Director", credentials: "B.Eng FUTO, MSc Geotechnics UNILAG", description: "21+ years experience in structural and civil engineering. Member COREN, NSE." },
+  /* { name: "Engr. M.A. Adigun", position: "Deputy Managing Director", credentials: "B.Eng FUTO, MSc Geotechnics UNILAG", description: "21+ years experience in structural and civil engineering. Member COREN, NSE." }, */
   { name: "Engr. A.D. Onitilo", position: "Executive Director Engineering", credentials: "BSc Civil Engineering UNILAG", description: "25+ years experience in design and construction works. Member COREN, NSE." },
-  { name: "Engr. Y.O. Bankole", position: "Director, Mechanical/Electrical", credentials: "Mechanical/Agric Eng ABU Zaria, MSc", description: "20+ years experience in mechanical engineering. Member COREN, NSE." },
+  /* { name: "Engr. Y.O. Bankole", position: "Director, Mechanical/Electrical", credentials: "Mechanical/Agric Eng ABU Zaria, MSc", description: "20+ years experience in mechanical engineering. Member COREN, NSE." }, */
   { name: "Adeyemi Adebayo", position: "Director, Planning & Research", credentials: "HND Town & Regional Planning, Yabatech", description: "Registered Town Planner. Leads Project Evaluation Committee." },
   { name: "Ms. R.T. Fatoki", position: "Director, Admin & Finance", credentials: "HND Accountancy, ICAN", description: "Oversees accounting and finance functions with extensive auditing experience." },
 ]
@@ -137,15 +135,17 @@ export default function EnvostructsWebsite() {
         </button>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-32 flex flex-col justify-center" style={{ minHeight: "100vh" }}>
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8">
-              <Award className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-              <span className="text-white/90 text-xs sm:text-sm font-medium">COREN Licensed · RC 694337 · Est. 2008</span>
+            <div className="mb-8">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tight">
+                ENVOSTRUCTS
+                <span className="block text-3xl sm:text-4xl md:text-5xl text-white/95 font-light mt-2 mb-4">
+                  NIGERIA LIMITED <span className="text-2xl sm:text-3xl text-amber-400 font-medium tracking-wide">RC: 694337</span>
+                </span>
+                <span className="block text-amber-400 drop-shadow-lg font-serif italic text-4xl sm:text-5xl md:text-6xl mt-6">
+                  Engineering Excellence
+                </span>
+              </h1>
             </div>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.92] tracking-tight mb-6">
-              Engineering
-              <span className="block text-amber-400 drop-shadow-lg">Excellence</span>
-              <span className="text-white/80 text-3xl sm:text-4xl md:text-5xl font-light block mt-2">Built for Nigeria</span>
-            </h1>
             <p className="text-base sm:text-lg md:text-xl text-white/75 max-w-xl mb-10 leading-relaxed font-light">
               Multi-disciplinary design consultancy, construction and project management — delivering precision engineering across Nigeria since 2008.
             </p>
@@ -170,7 +170,7 @@ export default function EnvostructsWebsite() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <p className="text-center text-white/40 text-[10px] tracking-widest uppercase pt-2 pb-0.5">{HERO_SLIDES[heroSlide].caption}</p>
             <div className="grid grid-cols-3 divide-x divide-white/10 py-3">
-              {[{ value: "16+", label: "Years Experience" }, { value: "60+", label: "Projects Completed" }, { value: "₦30B+", label: "Project Value" }].map((item) => (
+              {[{ value: "20+", label: "Years Experience" }, { value: "100+", label: "Projects Completed" }, { value: "₦500B+", label: "Project Value" }].map((item) => (
                 <div key={item.label} className="text-center px-4">
                   <div className="text-amber-400 font-black text-xl">{item.value}</div>
                   <div className="text-white/50 text-xs">{item.label}</div>
@@ -186,10 +186,10 @@ export default function EnvostructsWebsite() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-y-2 md:divide-y-0 md:divide-x divide-white/20">
             {[
-              { label: "Years of Experience", value: 16, suffix: "+" },
-              { label: "Projects Completed", value: 60, suffix: "+" },
-              { label: "Professional Staff", value: 20, suffix: "+" },
-              { label: "Project Value (₦)", value: 30, suffix: "B+" },
+              { label: "Years of Experience", value: 20, suffix: "+" },
+              { label: "Projects Completed", value: 100, suffix: "+" },
+              { label: "Staff Strength", value: 100, suffix: "+" },
+              { label: "Project Value (₦)", value: 500, suffix: "B+" },
             ].map((stat, i) => (
               <Reveal key={stat.label} direction="up" delay={i * 100} className="text-center px-6 py-4">
                 <div className="text-4xl md:text-5xl font-black text-amber-400 tabular-nums">
@@ -233,9 +233,23 @@ export default function EnvostructsWebsite() {
             <div className="text-center mb-14">
               <span className="section-label">Who We Are</span>
               <h2 className="section-title mb-4">About Envostructs</h2>
-              <p className="section-desc max-w-3xl mx-auto">
-                A multi-disciplinary design consultancy, construction and project management practice outfit, offering wide range of engineering consultancy services across Nigeria.
+              <p className="text-xl sm:text-2xl font-bold text-gray-800 max-w-3xl mx-auto leading-relaxed mt-4">
+                We are a multi-disciplinary design consultancy, construction, and project management powerhouse—delivering world-class engineering solutions across Nigeria.
               </p>
+            </div>
+          </Reveal>
+
+          <Reveal direction="up">
+            <div className="mb-14 bg-amber-50 border border-amber-100 rounded-2xl p-8 flex flex-col md:flex-row items-center gap-6 shadow-sm">
+              <div className="w-16 h-16 bg-[#003366] text-white rounded-2xl flex items-center justify-center shrink-0 shadow-lg">
+                <Building2 className="w-8 h-8" />
+              </div>
+              <div>
+                <h3 className="text-xl font-black text-gray-900 mb-2">LASBCA CAPS Partnership</h3>
+                <p className="text-gray-700 leading-relaxed text-sm">
+                  Envostructs has recently partnered with the <strong>Lagos State Building Control Agency (LASBCA)</strong> under the prestigious <strong>Certified Accreditors Program (CAPS)</strong>. Based in Okota, Lagos State, this specialized government initiative allows us to work closely in monitoring and assessing abandoned, uncompleted, or structurally unstable buildings, ensuring public safety and engineering compliance across the state.
+                </p>
+              </div>
             </div>
           </Reveal>
 
@@ -262,12 +276,12 @@ export default function EnvostructsWebsite() {
               </Reveal>
               <div className="space-y-3">
                 {[
-                  { label: "Share Capital", val: 11, suffix: "M ₦" },
-                  { label: "Staff Strength", val: 20, suffix: "+ Professionals" },
-                  { label: "Bank Projects", val: 10, suffix: "+ Completed" },
-                  { label: "Government Projects", val: 4, suffix: "+ Completed" },
-                  { label: "Commercial Projects", val: 15, suffix: "+ Completed" },
-                  { label: "Individual Projects", val: 30, suffix: "+ Completed" },
+                  { label: "Share Capital", val: 1, suffix: "M ₦" },
+                  { label: "Staff Strength", val: 100, suffix: "+ Professionals" },
+                  { label: "Bank Projects", val: 15, suffix: "+ Completed" },
+                  { label: "Government Projects", val: 20, suffix: "+ Completed" },
+                  { label: "Commercial Projects", val: 10, suffix: "+ Completed" },
+                  { label: "Individual Projects", val: 60, suffix: "+ Completed" },
                 ].map((s, i) => (
                   <Reveal key={s.label} direction="right" delay={i * 60}>
                     <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl border border-gray-100 hover:border-amber-200 transition-colors">
@@ -357,12 +371,9 @@ export default function EnvostructsWebsite() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {([
-              { title: "Swiss International Hotel Abeokuta", description: "15 Storey Hotel Structure", value: "₦6.5 Billion", category: "Hospitality", status: "Completed", location: "Abeokuta, Ogun State", year: "2023", slug: "swiss-international-hotel-abeokuta", image: IMAGES.swissHotel },
               { title: "Detached Duplex Units", description: "4 Units at OGUDU GRA Lagos", value: "₦300 Million", category: "Residential", status: "Ongoing", location: "Lagos State", year: "2024", image: IMAGES.duplex },
               { title: "Soilless Farm Lab Hostel", description: "12 Blocks at Awowo Village", value: "₦850 Million", category: "Educational", status: "Completed", location: "Abeokuta", year: "2022", slug: "soilless-farm-lab-hostel", image: IMAGES.farmHostel },
-              { title: "Community Bridge", description: "Ibeju Lekki – Iba-Oloja Link", value: "₦750 Million", category: "Infrastructure", status: "Design Phase", location: "Lagos State", year: "2024", slug: "community-bridge-project", image: IMAGES.bridge },
               { title: "Lekki Free Zone Roads", description: "Road N5 & E6A Construction", value: "₦464 Million", category: "Infrastructure", status: "Completed", location: "Lagos State", year: "2023", image: IMAGES.roads },
-              { title: "Swiss Budget Hotel", description: "Office Complex Conversion", value: "₦5.2 Billion", category: "Hospitality", status: "Completed", location: "Lagos State", year: "2022", image: IMAGES.budgetHotel },
             ] as Parameters<typeof ProjectCard>[0][]).map((p, i) => (
               <Reveal key={p.title} direction="up" delay={(i % 3) * 80}>
                 <ProjectCard {...p} />
@@ -426,7 +437,7 @@ export default function EnvostructsWebsite() {
           <Reveal direction="up">
             <div className="text-center mb-14">
               <span className="section-label">Client Feedback</span>
-              <h2 className="section-title mb-4">What Our Clients Say</h2>
+              <h2 className="section-title mb-4">Clients view about envostructs</h2>
               <p className="section-desc">Testimonials from satisfied clients</p>
             </div>
           </Reveal>
