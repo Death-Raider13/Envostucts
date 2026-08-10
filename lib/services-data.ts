@@ -82,7 +82,6 @@ export const servicesData: Record<string, ServiceData> = {
     ],
     projectExamples: [
       { title: "Swiss International Hotel (15-storey)", value: "₦6.5 Billion", slug: "swiss-international-hotel-abeokuta", description: "Full structural design for 15-storey reinforced concrete hotel frame." },
-      { title: "First Bank Nigeria — Multi-Branch Designs", value: "₦95 Million", slug: "first-bank-branch-designs", description: "Structural design programme for multiple branch buildings across Nigeria." },
       { title: "The New Onilegbale Palace", value: "₦1.5 Billion", slug: "onilegbale-palace-lagos-island", description: "Bespoke structural design for multi-storey royal palace, Isale Eko." },
       { title: "Lagos State Polytechnic Classrooms", value: "₦110 Million", slug: "lagos-poly-classrooms", description: "Structural design and supervision for new classroom block, Ikorodu campus." },
     ],

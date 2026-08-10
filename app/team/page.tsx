@@ -18,7 +18,7 @@ const LEADERSHIP = [
     position: "Managing Consultant/Director",
     credentials: "B.Eng Civil Engineering, COREN: R6610, NSE: 07462",
     description: "Former Head of Department at Lagos State Polytechnic with extensive experience in civil/structural engineering. Oversees overall management and heads the firm's business negotiation team.",
-    experience: "30+ years",
+    experience: "40+ years",
     specialization: "Civil/Structural Engineering",
     education: "University of Ilorin (B.Eng), Lagos State Polytechnic (ND)",
     memberships: ["COREN", "NSE", "NICE"],
@@ -37,8 +37,8 @@ const LEADERSHIP = [
     name: "Engr. A.D. Onitilo",
     position: "Executive Director Engineering",
     credentials: "BSc Civil Engineering UNILAG",
-    description: "25+ years experience in design and construction works with expertise in both structural and civil engineering projects.",
-    experience: "25+ years",
+    description: "40+ years experience in design and construction works with expertise in both structural and civil engineering projects.",
+    experience: "40+ years",
     specialization: "Design & Construction",
     education: "University of Lagos (BSc Civil Engineering)",
     memberships: ["COREN", "NSE"],
@@ -125,7 +125,7 @@ export default function TeamPage() {
             <div className="text-center mb-14">
               <span className="section-label">Board of Directors</span>
               <h2 className="section-title-light mb-4">Leadership &amp; Management</h2>
-              <p className="text-white/50 text-lg">Combined 130+ years of engineering experience</p>
+              <p className="text-white/50 text-lg">Combined 140+ years of engineering experience</p>
             </div>
           </Reveal>
 

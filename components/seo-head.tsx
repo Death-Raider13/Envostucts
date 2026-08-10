@@ -56,7 +56,7 @@ export function SEOHead({
             logo: "/placeholder.svg?height=200&width=200&text=Envostructs+Logo",
             contactPoint: {
               "@type": "ContactPoint",
-              telephone: "+234-08127744990",
+              telephone: "+234-08127744990, +234-08034770098, +2347120175574",
               contactType: "customer service",
               areaServed: "NG",
               availableLanguage: "English",

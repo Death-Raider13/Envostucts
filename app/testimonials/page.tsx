@@ -15,23 +15,23 @@ function uiAvatar(name: string, bg = "003366") {
 
 const TESTIMONIALS = [
   {
-    name: "Dr. Adebayo Ogundimu",
+    name: "Prof Wasiu Babalola",
     position: "Managing Director",
-    company: "Swiss International Hotels",
-    project: "Swiss International Hotel Abeokuta",
+    company: "Continent Hotels",
+    project: "Continent Hotels",
     rating: 5,
-    avatar: uiAvatar("Dr. Adebayo Ogundimu", "003366"),
+    avatar: uiAvatar("Prof Wasiu Babalola", "003366"),
     category: "Hospitality",
-    year: "2023",
-    testimonial: "Envostructs Nigeria Limited exceeded our expectations in every aspect of the Swiss International Hotel Abeokuta project. Their attention to detail, professional project management, and ability to deliver on time and within budget was remarkable. The 15-storey structure stands as a testament to their engineering excellence.",
+    year: "2020",
+    testimonial: "Envostructs Nigeria Limited exceeded our expectations in every aspect of the Continent Hotels project. Their attention to detail, professional project management, and ability to deliver on time and within budget was remarkable. The 15-storey structure stands as a testament to their engineering excellence.",
   },
   {
-    name: "Prof. Olumide Adeyemi",
+    name: "Farmer Samsom Ogbole",
     position: "Director",
     company: "Soilless Farm Laboratory",
     project: "Soilless Farm Lab Hostel",
     rating: 5,
-    avatar: uiAvatar("Prof. Olumide Adeyemi", "1a4a7a"),
+    avatar: uiAvatar("Farmer Samsom Ogbole", "1a4a7a"),
     category: "Educational",
     year: "2022",
     testimonial: "The team at Envostructs demonstrated exceptional understanding of our unique requirements for the agricultural research facility. The 12 hostel blocks were constructed with sustainable practices and modern amenities that perfectly serve our research community. Their commitment to environmental considerations was particularly impressive.",
@@ -83,10 +83,10 @@ const TESTIMONIALS = [
 ]
 
 const CLIENTS = [
-  "Swiss International Hotels", "Lagos State Government", "NASFAT", "Lekki Free Zone Authority",
-  "First Bank Nigeria", "Zenith Bank", "Lagos State Polytechnic", "Diamond Bank", "Soilless Farm Lab",
-  "Swiss International Hotels", "Lagos State Government", "NASFAT", "Lekki Free Zone Authority",
-  "First Bank Nigeria", "Zenith Bank", "Lagos State Polytechnic", "Diamond Bank", "Soilless Farm Lab",
+  "Continent Hotels", "Lagos State Government", "NASFAT", "Lekki Free Zone Authority",
+  "", "Zenith Bank", "Lagos State Polytechnic", "Diamond Bank", "Soilless Farm Lab",
+  "Continent Hotels", "Lagos State Government", "NASFAT", "Lekki Free Zone Authority",
+  "", "Zenith Bank", "Lagos State Polytechnic", "Diamond Bank", "Soilless Farm Lab",
 ]
 
 const CATEGORY_COLORS: Record<string, string> = {

@@ -12,8 +12,46 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: "All fields are required", success: false }, { status: 400 })
     }
 
+    const web3formsAccessKey = process.env.WEB3FORMS_ACCESS_KEY
+
+    if (web3formsAccessKey) {
+      const web3formsResponse = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: web3formsAccessKey,
+          name,
+          email,
+          phone: phone || "",
+          subject,
+          message,
+          from_name: name,
+          source: "Envostructs Website Contact Form",
+          company: "Envostructs Nigeria Limited",
+        }),
+      })
+
+      const web3Result = await web3formsResponse.json().catch(() => ({ success: false }))
+
+      if (!web3formsResponse.ok || web3Result?.success === false) {
+        console.error("Web3Forms error:", web3Result)
+        return NextResponse.json(
+          {
+            message: web3Result?.message || "Your message could not be sent via Web3Forms. Please try again or call us directly.",
+            success: false,
+          },
+          { status: 400 },
+        )
+      }
+
+      return NextResponse.json({ message: "Message sent successfully!", success: true }, { status: 200 })
+    }
+
     if (!process.env.RESEND_API_KEY) {
-      console.warn("RESEND_API_KEY not set — email not sent")
+      console.warn("Neither WEB3FORMS_ACCESS_KEY nor RESEND_API_KEY is configured")
       return NextResponse.json({ message: "Message sent successfully!", success: true }, { status: 200 })
     }
 

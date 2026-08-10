@@ -48,22 +48,22 @@ const SERVICES = [
 ]
 
 const TEAM = [
-  { name: "Engr. S.I.A. Edidi", position: "Managing Consultant/Director", credentials: "B.Eng Civil Eng, COREN: R6610, NSE: 07462", description: "Former Head of Department at Lagos State Polytechnic. 30+ years in civil/structural engineering." },
+  { name: "Engr. S.I.A. Edidi", position: "Managing Consultant/Director", credentials: "B.Eng Civil Eng, COREN: R6610, NSE: 07462", description: "Former Head of Department at Lagos State Polytechnic. 40+ years in civil/structural engineering." },
   /* { name: "Engr. M.A. Adigun", position: "Deputy Managing Director", credentials: "B.Eng FUTO, MSc Geotechnics UNILAG", description: "21+ years experience in structural and civil engineering. Member COREN, NSE." }, */
-  { name: "Engr. A.D. Onitilo", position: "Executive Director Engineering", credentials: "BSc Civil Engineering UNILAG", description: "25+ years experience in design and construction works. Member COREN, NSE." },
+  { name: "Engr. A.D. Onitilo", position: "Executive Director Engineering", credentials: "BSc Civil Engineering UNILAG", description: "40+ years experience in design and construction works. Member COREN, NSE." },
   /* { name: "Engr. Y.O. Bankole", position: "Director, Mechanical/Electrical", credentials: "Mechanical/Agric Eng ABU Zaria, MSc", description: "20+ years experience in mechanical engineering. Member COREN, NSE." }, */
   { name: "Adeyemi Adebayo", position: "Director, Planning & Research", credentials: "HND Town & Regional Planning, Yabatech", description: "Registered Town Planner. Leads Project Evaluation Committee." },
   { name: "Ms. R.T. Fatoki", position: "Director, Admin & Finance", credentials: "HND Accountancy, ICAN", description: "Oversees accounting and finance functions with extensive auditing experience." },
 ]
 
 const TESTIMONIALS = [
-  { name: "Dr. Adebayo Ogundimu", position: "Managing Director, Swiss International Hotels", text: "Envostructs exceeded our expectations in every aspect of the Swiss International Hotel project. Their engineering excellence and project management were remarkable.", rating: 5 },
-  { name: "Prof. Olumide Adeyemi", position: "Director, Soilless Farm Laboratory", text: "The team demonstrated exceptional understanding of our unique requirements. The sustainable construction practices were particularly impressive.", rating: 5 },
+  { name: "Prof Wasiu Babalola", position: "Managing Director, Continent Hotels", text: "Envostructs exceeded our expectations in every aspect of the Continent Hotels project. Their engineering excellence and project management were remarkable.", rating: 5 },
+  { name: "Farmer Samsom Ogbole", position: "Director, Soilless Farm Laboratory", text: "The team demonstrated exceptional understanding of our unique requirements. The sustainable construction practices were particularly impressive.", rating: 5 },
   { name: "Engr. Funmi Adebisi", position: "Lagos State Ministry of Works", text: "Their comprehensive approach to environmental impact assessment and community engagement set them apart. Highly professional team.", rating: 5 },
 ]
 
 const CLIENTS = [
-  "Swiss International Hotels", "Lagos State Govt", "NASFAT", "Lekki Free Zone", "First Bank Nigeria",
+  "Continent Hotels", "Lagos State Govt", "NASFAT", "Lekki Free Zone", "",
   "Zenith Bank", "Lagos State Polytechnic", "Soilless Farm Lab", "Diamond Bank",
 ]
 
@@ -245,9 +245,9 @@ export default function EnvostructsWebsite() {
                 <Building2 className="w-8 h-8" />
               </div>
               <div>
-                <h3 className="text-xl font-black text-gray-900 mb-2">LASBCA CAPS Partnership</h3>
+                <h3 className="text-xl font-black text-gray-900 mb-2">LASBCA-CAP Partnership</h3>
                 <p className="text-gray-700 leading-relaxed text-sm">
-                  Envostructs has recently partnered with the <strong>Lagos State Building Control Agency (LASBCA)</strong> under the prestigious <strong>Certified Accreditors Program (CAPS)</strong>. Based in Okota, Lagos State, this specialized government initiative allows us to work closely in monitoring and assessing abandoned, uncompleted, or structurally unstable buildings, ensuring public safety and engineering compliance across the state.
+                  Envostructs has recently partnered with the <strong>Lagos State Building Control Agency (LASBCA)</strong> under the prestigious <strong>Certified Accreditors Program (CAP)</strong>.With our operational loation at isolo district, this specialized government initiative allows us to work closely in monitoring and assessing abandoned, uncompleted, or structurally unstable buildings, ensuring public safety and engineering compliance across the state.
                 </p>
               </div>
             </div>
@@ -508,9 +508,9 @@ export default function EnvostructsWebsite() {
                 <div className="space-y-6">
                   {[
                     { icon: <MapPin className="w-5 h-5 text-white" />, label: "Address", text: "51, Akanro Street, Off Apapa-Oshodi Express Road, by Ilasa Bustop, P.O. Box 2890 Yaba, Lagos, Nigeria" },
-                    { icon: <Phone className="w-5 h-5 text-white" />, label: "Phone", text: "+234-08127744990\n+234-08127744990" },
+                    { icon: <Phone className="w-5 h-5 text-white" />, label: "Phone", text: "+234-08127744990\n+234-08034770098\n+2347120175574" },
                     { icon: <Mail className="w-5 h-5 text-white" />, label: "Email", text: "envostructs@yahoo.co.uk\nenvostructs@gmail.com" },
-                    { icon: <Calendar className="w-5 h-5 text-white" />, label: "Working Hours", text: "Monday – Friday: 8am – 6pm\nSaturday: 9am – 2pm" },
+                    { icon: <Calendar className="w-5 h-5 text-white" />, label: "Working Hours", text: "Monday – Friday: 8am – 6pm\nSaturday: 9am – 4pm" },
                   ].map((item) => (
                     <div key={item.label} className="flex items-start gap-4">
                       <div className="w-11 h-11 bg-[#003366] rounded-xl flex items-center justify-center shrink-0">{item.icon}</div>

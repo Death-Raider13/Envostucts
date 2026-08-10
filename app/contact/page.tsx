@@ -75,7 +75,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center text-sm">
             <a href="tel:+2348034770098" className="flex items-center justify-center gap-2 hover:text-amber-400 transition-colors">
               <Phone className="w-4 h-4 text-amber-400" />
-              +234-08127744990
+              +234-08127744990, +234-08034770098, +2347120175574
             </a>
             <a href="mailto:envostructs@gmail.com" className="flex items-center justify-center gap-2 hover:text-amber-400 transition-colors">
               <Mail className="w-4 h-4 text-amber-400" />
@@ -210,7 +210,7 @@ export default function ContactPage() {
                   </div>
                   <div className="flex justify-between">
                     <span>Saturday</span>
-                    <span className="font-medium text-gray-800">9:00 AM – 2:00 PM</span>
+                    <span className="font-medium text-gray-800">9:00 AM – 4:00 PM</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Sunday</span>

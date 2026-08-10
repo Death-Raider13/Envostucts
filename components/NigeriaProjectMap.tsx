@@ -40,7 +40,7 @@ const PROJECT_PINS: ProjectPin[] = [
     x: 110,
     y: 340,
     projects: [
-      { title: "Swiss International Hotel", value: "₦6.5B", slug: "swiss-international-hotel-abeokuta" },
+      { title: "Continent Hotel", value: "₦6.5B", slug: "swiss-international-hotel-abeokuta" },
       { title: "Soilless Farm Lab Hostel", value: "₦850M", slug: "soilless-farm-lab-hostel" },
     ],
   },

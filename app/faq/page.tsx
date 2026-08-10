@@ -41,7 +41,7 @@ const FAQS = [
   },
   {
     q: "Do you work with government agencies and large corporations?",
-    a: "Yes. We have extensive experience working with government ministries and agencies including Lagos State Ministry of Works, the Nigerian Airport Authority, and World Bank-funded projects. Our corporate client list includes First Bank Nigeria, Diamond Bank (now Access Bank), Lekki Free Zone Development Company, and Swiss International Hotels.",
+    a: "Yes. We have extensive experience working with government ministries and agencies including Lagos State Ministry of Works, the Nigerian Airport Authority, and World Bank-funded projects. Our corporate client list includes , Diamond Bank (now Access Bank), Lekki Free Zone Development Company, and Swiss International Hotels.",
   },
   {
     q: "What is Envostructs' largest completed project to date?",
@@ -164,7 +164,7 @@ export default function FAQPage() {
           <Reveal direction="up">
             <span className="section-label">Still Have Questions?</span>
             <h2 className="section-title-light mb-5">Let's Talk About Your Project</h2>
-            <p className="text-white/50 text-lg mb-10">Our team is available Monday–Friday 8am–6pm and Saturday 9am–2pm. We respond to all inquiries within 24 hours.</p>
+            <p className="text-white/50 text-lg mb-10">Our team is available Monday–Friday 8am–6pm and Saturday 9am–4pm. We respond to all inquiries within 24 hours.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
                 <Button size="lg" className="bg-amber-500 hover:bg-amber-400 text-white font-bold rounded-full px-8 hover:scale-105 transition-all duration-300">

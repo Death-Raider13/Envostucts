@@ -406,7 +406,7 @@ const projectsData = {
     keyFeatures: [
       "Multi-storey hotel structure with reinforced concrete frame",
       "Deep foundation system for River Benue alluvial conditions",
-      "Swiss International Hotel Group structural standards compliance",
+      "Continent Hotel Group structural standards compliance",
       "Full structural package: foundations, columns, beams, and slabs",
       "Hotel-grade load capacities for conference halls and amenity areas",
       "Coordinated MEP structural provisions throughout",
@@ -787,56 +787,7 @@ const projectsData = {
     ],
   },
 
-  "first-bank-branch-designs": {
-    title: "First Bank Nigeria — Multi-Branch Structural Designs",
-    description: "Structural design package for multiple First Bank Nigeria branch buildings across Nigeria — serving the oldest bank in Africa with 820+ business locations nationwide",
-    value: "₦95 Million",
-    category: "Commercial",
-    status: "Completed",
-    location: "Multiple States, Nigeria",
-    year: "2017",
-    duration: "18 months",
-    client: "First Bank of Nigeria Limited",
-    projectManager: "Engr. S.I.A. Edidi",
-    images: [PROJECT_IMGS.firstBank, PROJECT_IMGS.comFill1, PROJECT_IMGS.comFill2, PROJECT_IMGS.roadFill3],
-    overview: "First Bank of Nigeria — founded in 1894 and the oldest and largest commercial bank in Nigeria — operates one of the most extensive branch networks in Africa, with over 820 business locations. As part of a branch expansion and upgrade programme, Envostructs was engaged to provide structural engineering designs for multiple new branch buildings across Nigerian states. Working to First Bank's architectural and space planning standards, Envostructs produced structural drawings, calculations, and specifications for each branch — covering foundations, columns, beams, slabs, and roof structures — used by local contractors at each location for construction. The engagement demonstrated Envostructs' ability to manage a multi-site structural design programme across varied ground conditions, local regulations, and geographies.",
-    challenges: [
-      "Designing structures for multiple sites simultaneously — each with different soil conditions, plot sizes, and LGA planning requirements",
-      "Coordinating structural designs to First Bank's standardized architectural layouts while adapting to site-specific constraints",
-      "Fast-track design timeline required by First Bank's branch opening programme",
-      "Ensuring designs were buildable by local contractors at each state without specialist equipment or imported materials",
-    ],
-    solutions: [
-      "Standardised structural design template keyed to First Bank branch typologies, adapted with site-specific foundation modifications",
-      "Engaged local geotechnical firms for borehole investigations at each site, informing foundation design with site-specific data",
-      "Dedicated design team with weekly progress reviews and shared drawing register to track all deliverables",
-      "Designed for locally available materials — standard rebar sizes and concrete mixes appropriate to each region",
-    ],
-    keyFeatures: [
-      "Structural design for multiple branch buildings nationwide",
-      "Foundation designs adapted to each site's geotechnical conditions",
-      "Standardised structural frame designs keyed to First Bank typologies",
-      "Structural drawings, calculations, and specs for contractor use",
-      "Bank-specific structural provisions — vault rooms, counter areas, ATM platforms",
-      "Roof structure designs appropriate to each branch configuration",
-      "Structural coordination with First Bank's architectural drawings",
-      "Multi-site design programme management",
-    ],
-    technicalSpecs: [
-      { label: "Client", value: "First Bank of Nigeria Limited" },
-      { label: "Service", value: "Structural Design" },
-      { label: "Design Standard", value: "BS 8110 / Nigerian Standards" },
-      { label: "Structure Type", value: "Reinforced Concrete Frame" },
-      { label: "Scope", value: "Multi-state branch programme" },
-      { label: "Bank Founded", value: "1894 — oldest bank in Nigeria" },
-    ],
-    timeline: [
-      { phase: "Programme Setup & Design Brief", duration: "2 months", status: "Completed" },
-      { phase: "Site Investigations & Foundation Designs", duration: "5 months", status: "Completed" },
-      { phase: "Structural Frame Designs & Drawings", duration: "7 months", status: "Completed" },
-      { phase: "Client Review, Revision & Issue for Construction", duration: "4 months", status: "Completed" },
-    ],
-  },
+ 
 
   "akanro-road-ilasa": {
     title: "Akanro Road Rehabilitation — Ilasa, Lagos",
@@ -1305,7 +1256,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
                   <span className="section-label">Gallery</span>
                   <h2 className="section-title mb-6">Project Gallery</h2>
                   <ProjectGallery images={project.images} title={project.title} />
-                 
+
                 </div>
               </Reveal>
 

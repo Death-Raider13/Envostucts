@@ -154,7 +154,7 @@ export default function AboutPage() {
                     Over 16 years, Envostructs has delivered projects across hospitality, educational, government, commercial, religious, and infrastructure sectors — from luxury hotels and research hostels to bridges, roads, and jetties.
                   </p>
                   <p className="text-gray-600 leading-relaxed">
-                    Our client portfolio includes Lagos State Government, Swiss International Hotels, First Bank Nigeria, NASFAT, Lekki Free Zone Development Company, and numerous private developers across Nigeria.
+                    Our client portfolio includes Lagos State Government, Swiss International Hotels, , NASFAT, Lekki Free Zone Development Company, and numerous private developers across Nigeria.
                   </p>
                 </div>
               </Reveal>
