@@ -1111,11 +1111,20 @@ const CATEGORY_COLORS: Record<string, string> = {
   Commercial: "bg-cyan-500/20 text-cyan-300 border border-cyan-500/40",
 }
 
+const HIDDEN_PROJECT_SLUGS = new Set([
+  "swiss-international-hotel-abeokuta",
+  "community-bridge-project",
+  "swiss-budget-hotel-balogun",
+])
+
 export async function generateStaticParams() {
-  return Object.keys(projectsData).map((slug) => ({ slug }))
+  return Object.keys(projectsData)
+    .filter((slug) => !HIDDEN_PROJECT_SLUGS.has(slug))
+    .map((slug) => ({ slug }))
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
+  if (HIDDEN_PROJECT_SLUGS.has(params.slug)) return { title: "Project Not Found" }
   const project = projectsData[params.slug as keyof typeof projectsData]
   if (!project) return { title: "Project Not Found" }
   return {
@@ -1127,6 +1136,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 type ProjectData = (typeof projectsData)[keyof typeof projectsData]
 
 export default function ProjectDetailPage({ params }: { params: { slug: string } }) {
+  if (HIDDEN_PROJECT_SLUGS.has(params.slug)) notFound()
   const project = projectsData[params.slug as keyof typeof projectsData] as ProjectData & { video?: string }
   if (!project) notFound()
 

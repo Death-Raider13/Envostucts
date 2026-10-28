@@ -22,15 +22,15 @@ const PROJECT_PINS: ProjectPin[] = [
     x: 105,
     y: 385,
     projects: [
-      { title: "The New Onilegbale Palace", value: "₦1.5B", slug: "onilegbale-palace-lagos-island" },
-      { title: "National Theatre Car Parks", value: "₦350M", slug: "national-theatre-car-parks" },
-      { title: "NASFAT Central Mosque", value: "₦80M", slug: "nasfat-central-mosque" },
-      { title: "Lekki Free Zone Roads", value: "₦464M", slug: "lekki-free-zone-roads" },
-      { title: "Mile 12 – Ikorodu Road", value: "₦215M", slug: "mile12-ikorodu-road" },
-      { title: "Murtala Muhammed Airport Runway", value: "₦285M", slug: "airport-runway-resurfacing" },
+      { title: "The New Onilegbale Palace", value: "Landmark", slug: "onilegbale-palace-lagos-island" },
+      { title: "National Theatre Car Parks (4 Nos.)", value: "₦350M", slug: "national-theatre-car-parks" },
+      { title: "NASFAT Central Mosque & Piling", value: "₦120M", slug: "nasfat-central-mosque" },
+      { title: "Lekki Free Zone Roads N5 & E6A", value: "₦464M", slug: "lekki-free-zone-roads" },
+      { title: "Mile 12 – Ikorodu Road (World Bank)", value: "₦215M", slug: "mile12-ikorodu-road" },
+      { title: "MMIA Airport Runway 18L/36R", value: "₦285M", slug: "airport-runway-resurfacing" },
       { title: "Diamond Bank Herbert Macaulay", value: "₦48M", slug: "diamond-bank-herbert-macaulay" },
       { title: "Akanro Road Rehabilitation", value: "₦85M", slug: "akanro-road-ilasa" },
-      { title: "OGUDU GRA Duplexes", value: "₦300M", slug: "ogudu-gra-duplex" },
+      { title: "Ogudu GRA Detached Duplexes", value: "₦300M", slug: "ogudu-gra-duplex" },
     ],
   },
   {
@@ -40,13 +40,12 @@ const PROJECT_PINS: ProjectPin[] = [
     x: 110,
     y: 340,
     projects: [
-      { title: "Continent Hotel", value: "₦6.5B", slug: "swiss-international-hotel-abeokuta" },
-      { title: "Soilless Farm Lab Hostel", value: "₦850M", slug: "soilless-farm-lab-hostel" },
+      { title: "Soilless Farm Lab Hostel (12 Blocks)", value: "₦850M", slug: "soilless-farm-lab-hostel" },
     ],
   },
   {
     id: "arepo",
-    city: "Arepo",
+    city: "Arepo / Mowe",
     state: "Ogun State",
     x: 125,
     y: 355,
@@ -82,7 +81,7 @@ const PROJECT_PINS: ProjectPin[] = [
     x: 168,
     y: 358,
     projects: [
-      { title: "Continent Hotel — Full Remodelling", value: "₦1.2 Billion", slug: "continent-hotel-akure" },
+      { title: "Continent Hotel — Full Remodelling", value: "₦1.2B", slug: "continent-hotel-akure" },
     ],
   },
   {
@@ -92,7 +91,7 @@ const PROJECT_PINS: ProjectPin[] = [
     x: 255,
     y: 250,
     projects: [
-      { title: "Swiss Spirit Hotel", value: "₦1.2B", slug: "swiss-spirit-hotel-makurdi" },
+      { title: "Geotechnical Subsoil Investigation (ESN/SI)", value: "Completed" },
     ],
   },
   {
@@ -102,7 +101,7 @@ const PROJECT_PINS: ProjectPin[] = [
     x: 130,
     y: 375,
     projects: [
-      { title: "Lagos Poly Classrooms", value: "₦110M", slug: "lagos-poly-classrooms" },
+      { title: "Lagos State Polytechnic Classrooms", value: "₦110M", slug: "lagos-poly-classrooms" },
     ],
   },
 ]
@@ -116,7 +115,6 @@ export function NigeriaProjectMap() {
   return (
     <div className="relative w-full">
       <div className="grid lg:grid-cols-2 gap-8 items-center">
-
         {/* SVG Map */}
         <div className="relative">
           <svg
@@ -135,7 +133,11 @@ export function NigeriaProjectMap() {
 
             {/* Project pins */}
             {PROJECT_PINS.map((pin) => (
-              <g key={pin.id} onClick={() => setActive(active?.id === pin.id ? null : pin)} style={{ cursor: "pointer" }}>
+              <g
+                key={pin.id}
+                onClick={() => setActive(active?.id === pin.id ? null : pin)}
+                style={{ cursor: "pointer" }}
+              >
                 {/* Pulse ring */}
                 <circle
                   cx={pin.x}
@@ -196,16 +198,26 @@ export function NigeriaProjectMap() {
                     <p className="text-white/60 text-xs">{active.state}</p>
                   </div>
                 </div>
-                <button onClick={() => setActive(null)} className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(255,255,255,0.1)" }}>
+                <button
+                  onClick={() => setActive(null)}
+                  className="w-8 h-8 rounded-full flex items-center justify-center"
+                  style={{ backgroundColor: "rgba(255,255,255,0.1)" }}
+                >
                   <X className="w-4 h-4 text-white" />
                 </button>
               </div>
               <div className="divide-y divide-gray-50">
                 {active.projects.map((p) => (
-                  <div key={p.title} className="px-5 py-3 flex items-center justify-between gap-3 hover:bg-amber-50 transition-colors">
+                  <div
+                    key={p.title}
+                    className="px-5 py-3 flex items-center justify-between gap-3 hover:bg-amber-50 transition-colors"
+                  >
                     <div className="flex-1 min-w-0">
                       {p.slug ? (
-                        <Link href={`/projects/${p.slug}`} className="text-gray-900 text-sm font-semibold hover:text-amber-600 transition-colors truncate block">
+                        <Link
+                          href={`/projects/${p.slug}`}
+                          className="text-gray-900 text-sm font-semibold hover:text-amber-600 transition-colors truncate block"
+                        >
                           {p.title}
                         </Link>
                       ) : (
@@ -220,7 +232,10 @@ export function NigeriaProjectMap() {
           ) : (
             <div>
               <h3 className="text-2xl font-black text-gray-900 mb-2">Projects Across Nigeria</h3>
-              <p className="text-gray-500 mb-6 leading-relaxed">From Lagos Island to Benue State — Envostructs has delivered engineering excellence in every corner of the country.</p>
+              <p className="text-gray-500 mb-6 leading-relaxed">
+                From Lagos Island and Ogun State to Ondo and Benue State — Envostructs has delivered 100+ engineering
+                commissions across Nigeria.
+              </p>
               <div className="space-y-3">
                 {PROJECT_PINS.map((pin) => (
                   <button
@@ -228,7 +243,10 @@ export function NigeriaProjectMap() {
                     onClick={() => setActive(pin)}
                     className="w-full flex items-center gap-3 p-3 rounded-xl border border-gray-100 hover:border-amber-300 hover:bg-amber-50 transition-all text-left group"
                   >
-                    <div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0 group-hover:bg-amber-500 transition-colors" style={{ backgroundColor: "#003366" }}>
+                    <div
+                      className="w-9 h-9 rounded-full flex items-center justify-center shrink-0 group-hover:bg-amber-500 transition-colors"
+                      style={{ backgroundColor: "#003366" }}
+                    >
                       <MapPin className="w-4 h-4 text-white" />
                     </div>
                     <div className="flex-1">

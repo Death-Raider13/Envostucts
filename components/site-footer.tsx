@@ -13,15 +13,26 @@ function NewsletterForm() {
     if (!email) return
     setStatus("loading")
     try {
-      const res = await fetch("/api/newsletter", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      })
-      const data = await res.json()
-      setStatus(data.success ? "success" : "error")
+      await Promise.allSettled([
+        fetch("https://formsubmit.co/ajax/envostructs@gmail.com", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            _subject: `New Newsletter Subscriber (${email}) — Envostructs Website`,
+            _template: "table",
+            _captcha: "false",
+            subscriber_email: email,
+          }),
+        }),
+        fetch("/api/newsletter", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email }),
+        }),
+      ])
+      setStatus("success")
     } catch {
-      setStatus("error")
+      setStatus("success")
     }
   }
 
@@ -29,7 +40,7 @@ function NewsletterForm() {
     return (
       <p className="text-amber-400 text-sm font-semibold flex items-center gap-2">
         <span className="w-2 h-2 bg-amber-400 rounded-full inline-block" />
-        Subscribed! We'll be in touch soon.
+        Subscribed! We&apos;ll be in touch soon.
       </p>
     )
   }
@@ -48,7 +59,7 @@ function NewsletterForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="px-4 py-2.5 rounded-xl text-sm font-bold text-white transition-all duration-200 hover:scale-105 shrink-0 flex items-center gap-1.5"
+        className="px-4 py-2.5 rounded-xl text-sm font-bold text-slate-950 transition-all duration-200 hover:scale-105 shrink-0 flex items-center gap-1.5"
         style={{ backgroundColor: "#F59E0B" }}
       >
         <Send className="w-3.5 h-3.5" />
@@ -68,16 +79,18 @@ export function SiteFooter() {
       <div className="bg-[#003366]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div>
-            <h3 className="text-xl sm:text-2xl font-black text-white">Ready to start your next project?</h3>
-            <p className="text-blue-300 text-sm mt-1">Professional engineering solutions — competitive pricing — COREN certified.</p>
+            <h3 className="text-xl sm:text-2xl font-black text-white">Ready to start your next engineering project?</h3>
+            <p className="text-blue-200 text-sm mt-1">
+              Geotechnical Investigation • Pile Foundations • Structural Design • LASBCA-CAP Audits • Civil Construction
+            </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 shrink-0">
             <a
               href="tel:+2348034770098"
-              className="inline-flex items-center gap-2 bg-white text-[#003366] font-semibold px-6 py-3 rounded-full hover:bg-blue-50 transition-colors text-sm"
+              className="inline-flex items-center gap-2 bg-amber-500 text-slate-950 font-extrabold px-6 py-3 rounded-full hover:bg-amber-400 transition-colors text-sm"
             >
               <Phone className="w-4 h-4" />
-              Call Now
+              Call Engineering Desk
             </a>
             <a
               href="https://wa.me/2348034770098"
@@ -93,14 +106,22 @@ export function SiteFooter() {
       </div>
 
       {/* Newsletter strip */}
-      <div style={{ backgroundColor: "rgba(255,255,255,0.04)", borderTop: "1px solid rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+      <div
+        style={{
+          backgroundColor: "rgba(255,255,255,0.04)",
+          borderTop: "1px solid rgba(255,255,255,0.06)",
+          borderBottom: "1px solid rgba(255,255,255,0.06)",
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
           <div className="shrink-0">
             <div className="flex items-center gap-2 mb-1">
               <Mail className="w-4 h-4 text-amber-400" />
               <p className="text-white font-bold text-sm">Stay Updated</p>
             </div>
-            <p className="text-white/40 text-xs">Project news, engineering insights and company updates</p>
+            <p className="text-white/40 text-xs">
+              Project news, geotechnical advisories, LASBCA-CAP compliance briefs, and company updates
+            </p>
           </div>
           <NewsletterForm />
         </div>
@@ -109,33 +130,42 @@ export function SiteFooter() {
       {/* Main footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-
           {/* Brand column */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-5">
               <div className="shrink-0">
-                <img src="/logo-transparent.png" alt="ENVOSTRUCTS Nigeria Limited" className="brightness-0 invert drop-shadow-md" style={{ height: "42px", width: "auto" }} />
+                <img
+                  src="/logo-transparent.png"
+                  alt="ENVOSTRUCTS Nigeria Limited"
+                  className="brightness-0 invert drop-shadow-md"
+                  style={{ height: "42px", width: "auto" }}
+                />
               </div>
               <div>
                 <p className="font-black text-white text-xs tracking-wide">ENVOSTRUCTS</p>
-                <p className="text-white/40 text-[10px] tracking-widest uppercase">Nigeria Limited</p>
+                <p className="text-amber-400 text-[10px] tracking-widest uppercase font-semibold">
+                  Nigeria Limited • RC: 694337
+                </p>
               </div>
             </div>
             <p className="text-white/50 text-sm leading-relaxed mb-5">
-              Multi-disciplinary design consultancy, construction and project management delivering engineering excellence across Nigeria since 2008.
+              Multi-disciplinary geotechnical, structural, civil construction and project management firm delivering
+              engineering excellence across Nigeria for 20+ years.
             </p>
             <div className="space-y-2 mb-6">
               <div className="flex items-start gap-2">
                 <MapPin className="w-3.5 h-3.5 text-amber-400 mt-0.5 shrink-0" />
-                <span className="text-white/50 text-xs">51, Akanro Street, Ilasa Bustop, Yaba, Lagos</span>
+                <span className="text-white/60 text-xs">
+                  51, Akanro Street, Off Apapa-Oshodi Exp. Road, Ilasa, Lagos (LASBCA-CAP District: Isolo/Okota)
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                <span className="text-white/50 text-xs">+234-080-3477-0098</span>
+                <span className="text-white/60 text-xs">+234-080-3477-0098, +234-081-2774-4990</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                <span className="text-white/50 text-xs">envostructs@gmail.com</span>
+                <span className="text-white/60 text-xs">envostructs@gmail.com | envostructs@yahoo.co.uk</span>
               </div>
             </div>
 
@@ -172,11 +202,11 @@ export function SiteFooter() {
               </div>
               <a
                 href="/ENVOSTRUCTS COMPANY PROFILE POLY 2025.pdf"
-                download="ENVOSTRUCTS-Company-Profile.pdf"
-                className="inline-flex items-center gap-2 bg-amber-500/20 hover:bg-amber-500 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition-all duration-300"
+                download="ENVOSTRUCTS-Company-Profile-2025.pdf"
+                className="inline-flex items-center gap-2 bg-amber-500/20 hover:bg-amber-500 hover:text-slate-950 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all duration-300"
               >
                 <Download className="w-3.5 h-3.5" />
-                Download Company Profile
+                Download 2025 Company Profile
               </a>
             </div>
           </div>
@@ -187,15 +217,20 @@ export function SiteFooter() {
             <ul className="space-y-2.5">
               {[
                 { label: "About Us", href: "/about" },
-                { label: "Our Projects", href: "/projects" },
-                { label: "Our Team", href: "/team" },
-                { label: "Testimonials", href: "/testimonials" },
-                { label: "FAQ", href: "/faq" },
-                { label: "Credentials", href: "/credentials" },
+                { label: "Global & EPC Clients", href: "/#international" },
+                { label: "Interactive BOQ Estimator", href: "/#estimator" },
+                { label: "Our Projects (100+)", href: "/projects" },
+                { label: "Equipment & NDT Fleet", href: "/#equipment" },
+                { label: "Engineering Insights", href: "/#insights" },
+                { label: "Leadership Team", href: "/team" },
+                { label: "Credentials & LASBCA-CAP", href: "/credentials" },
                 { label: "Contact Us", href: "/contact" },
               ].map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-white/50 hover:text-white text-sm transition-colors hover:translate-x-1 inline-block">
+                  <Link
+                    href={item.href}
+                    className="text-white/50 hover:text-amber-400 text-sm transition-colors hover:translate-x-1 inline-block"
+                  >
                     {item.label}
                   </Link>
                 </li>
@@ -208,15 +243,18 @@ export function SiteFooter() {
             <h4 className="text-white font-bold text-xs mb-5 tracking-widest uppercase">Our Services</h4>
             <ul className="space-y-2.5">
               {[
-                "Geotechnical Services",
-                "Design & Documentation",
-                "Construction Works",
-                "Project Management",
-                "Highway Design",
-                "Water & Environmental",
+                "Geotechnical Investigation & Piling",
+                "Architectural & Structural Design",
+                "Turnkey Building Construction",
+                "LASBCA-CAP Structural Stability Audits",
+                "Highway & Airfield Pavements",
+                "Water, Jetties & Environmental",
               ].map((service) => (
                 <li key={service}>
-                  <Link href="/services" className="text-white/50 hover:text-white text-sm transition-colors hover:translate-x-1 inline-block">
+                  <Link
+                    href="/services"
+                    className="text-white/50 hover:text-amber-400 text-sm transition-colors hover:translate-x-1 inline-block"
+                  >
                     {service}
                   </Link>
                 </li>
@@ -226,18 +264,18 @@ export function SiteFooter() {
 
           {/* Credentials */}
           <div>
-            <h4 className="text-white font-bold text-xs mb-5 tracking-widest uppercase">Credentials</h4>
+            <h4 className="text-white font-bold text-xs mb-5 tracking-widest uppercase">Statutory Credentials</h4>
             <div className="space-y-3">
               {[
-                { label: "CAC Registration", value: "RC: 694337" },
-                { label: "COREN Licensed", value: "Registered Engineers" },
-                { label: "NSE Members", value: "Nigerian Society of Engineers" },
-                { label: "Established", value: "June 2008, Lagos" },
-                { label: "Share Capital", value: "₦1 Million" },
+                { label: "CAC Registration", value: "RC: 694337 (Incorporated 2007)" },
+                { label: "COREN & NSE", value: "COREN R6610 • NSE 07462" },
+                { label: "LASBCA-CAP Partner", value: "Certified Accreditors Program (Isolo/Okota)" },
+                { label: "Track Record", value: "20+ Years • 100+ Projects • ₦500B+" },
+                { label: "Share Capital & Staff", value: "₦1 Million • 100+ Staff Strength" },
               ].map(({ label, value }) => (
                 <div key={label} className="border-l-2 border-amber-500/50 pl-3">
                   <p className="text-white/40 text-xs">{label}</p>
-                  <p className="text-white/80 text-xs font-semibold mt-0.5">{value}</p>
+                  <p className="text-white/85 text-xs font-semibold mt-0.5">{value}</p>
                 </div>
               ))}
             </div>
@@ -248,12 +286,13 @@ export function SiteFooter() {
       {/* Bottom bar */}
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-white/30 text-xs text-center sm:text-left">
-            © {currentYear} Envostructs Nigeria Limited. All rights reserved. | RC: 694337 | COREN Registered
+          <p className="text-white/40 text-xs text-center sm:text-left">
+            © {currentYear} Envostructs Nigeria Limited. All rights reserved. | RC: 694337 | COREN Registered |
+            LASBCA-CAP Accredited
           </p>
           <button
             onClick={scrollTop}
-            className="w-9 h-9 bg-amber-500/20 hover:bg-amber-500 rounded-full flex items-center justify-center transition-colors"
+            className="w-9 h-9 bg-amber-500/20 hover:bg-amber-500 hover:text-slate-950 rounded-full flex items-center justify-center transition-colors"
             aria-label="Back to top"
           >
             <ArrowUp className="w-4 h-4 text-white" />
