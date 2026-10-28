@@ -44,7 +44,7 @@ export function WhatsAppPopup() {
 
   return (
     <div
-      className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3"
+      className="fixed bottom-4 sm:bottom-6 right-3 sm:right-6 z-50 flex flex-col items-end gap-3 max-w-[calc(100vw-1.5rem)]"
       style={{
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? "translateY(0)" : "translateY(20px)",
@@ -61,7 +61,7 @@ export function WhatsAppPopup() {
         }}
       >
         <div
-          className="rounded-2xl shadow-2xl overflow-hidden w-64"
+          className="rounded-2xl shadow-2xl overflow-hidden w-64 max-w-[calc(100vw-2rem)]"
           style={{ backgroundColor: "#0a0e1a", border: "1px solid rgba(255,255,255,0.1)" }}
         >
           {/* Header */}

@@ -67,7 +67,7 @@ export default function FAQPage() {
         />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="section-label">Common Questions</span>
-          <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-black mb-6 leading-tight break-words">
             Frequently Asked
             <br />
             <span className="text-amber-400">Questions</span>

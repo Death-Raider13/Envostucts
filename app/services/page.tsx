@@ -94,7 +94,7 @@ export default function ServicesPage() {
         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="section-label">What We Offer</span>
-          <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-black mb-6 leading-tight break-words">
             Engineering<br />
             <span className="text-amber-400">Services</span>
           </h1>

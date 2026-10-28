@@ -133,7 +133,7 @@ export default function TestimonialsPage() {
         />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="section-label">Client Feedback</span>
-          <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-black mb-6 leading-tight break-words">
             Clients view about
             <br />
             <span className="text-amber-400">envostructs</span>
@@ -240,14 +240,15 @@ export default function TestimonialsPage() {
       </section>
 
       {/* ── CLIENT MARQUEE ── */}
-      <section className="py-14 bg-gray-50 overflow-hidden">
+      <section className="py-14 bg-gray-50 overflow-hidden w-full max-w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
           <Reveal direction="up">
             <span className="section-label">Our Clients</span>
             <h2 className="text-2xl font-black text-gray-900">Trusted by Leading Organizations</h2>
           </Reveal>
         </div>
-        <div className="flex animate-marquee gap-6 whitespace-nowrap w-max">
+        <div className="relative w-full max-w-full overflow-hidden">
+          <div className="flex animate-marquee gap-6 whitespace-nowrap w-max">
           {[...CLIENTS, ...CLIENTS].map((name, i) => (
             <span
               key={i}
@@ -257,6 +258,7 @@ export default function TestimonialsPage() {
               {name}
             </span>
           ))}
+          </div>
         </div>
       </section>
 

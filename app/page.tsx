@@ -413,7 +413,7 @@ ${contactForm.projectDetails || "Please contact me regarding an engineering cons
       </Script>
 
       {/* ── HERO SLIDESHOW ── */}
-      <section id="home" className="relative text-white overflow-hidden" style={{ minHeight: "100vh" }}>
+      <section id="home" className="relative text-white overflow-hidden w-full max-w-full" style={{ minHeight: "100vh" }}>
         {HERO_SLIDES.map((slide, i) => (
           <div
             key={slide.img}
@@ -470,20 +470,20 @@ ${contactForm.projectDetails || "Please contact me regarding an engineering cons
         </button>
 
         <div
-          className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-32 flex flex-col justify-center"
+          className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-36 pb-28 sm:pb-32 flex flex-col justify-center w-full max-w-full"
           style={{ minHeight: "100vh" }}
         >
           <div className="max-w-3xl">
             <div className="mb-8">
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tight">
+              <h1 className="text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[1.02] tracking-tight break-words max-w-full">
                 ENVOSTRUCTS
-                <span className="block text-3xl sm:text-4xl md:text-5xl text-white/95 font-light mt-2 mb-4">
+                <span className="block text-xl sm:text-3xl md:text-5xl text-white/95 font-light mt-2 mb-3">
                   NIGERIA LIMITED{" "}
-                  <span className="text-2xl sm:text-3xl text-amber-400 font-medium tracking-wide">
+                  <span className="inline-block text-base sm:text-2xl md:text-3xl text-amber-400 font-medium tracking-wide mt-1 sm:mt-0">
                     RC: 694337
                   </span>
                 </span>
-                <span className="block text-amber-400 drop-shadow-lg font-serif italic text-4xl sm:text-5xl md:text-6xl mt-6">
+                <span className="block text-amber-400 drop-shadow-lg font-serif italic text-2xl sm:text-4xl md:text-6xl mt-4 sm:mt-6">
                   Engineering Excellence
                 </span>
               </h1>
@@ -493,11 +493,11 @@ ${contactForm.projectDetails || "Please contact me regarding an engineering cons
               delivering precision engineering across Nigeria since 2008. Accredited partner to{" "}
               <strong className="text-amber-300 font-semibold">LASBCA (CAP)</strong>.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/projects">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 w-full">
+              <Link href="/projects" className="w-full sm:w-auto">
                 <Button
                   size="lg"
-                  className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold rounded-full px-8 shadow-2xl shadow-amber-900/30 hover:scale-105 transition-all duration-300"
+                  className="w-full sm:w-auto bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold rounded-full px-6 sm:px-8 shadow-2xl shadow-amber-900/30 hover:scale-105 transition-all duration-300"
                 >
                   View Our Projects <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -505,7 +505,7 @@ ${contactForm.projectDetails || "Please contact me regarding an engineering cons
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/50 text-white hover:bg-white/15 bg-white/10 backdrop-blur-sm font-semibold rounded-full px-8"
+                className="w-full sm:w-auto border-white/50 text-white hover:bg-white/15 bg-white/10 backdrop-blur-sm font-semibold rounded-full px-6 sm:px-8"
                 onClick={() => document.getElementById("estimator")?.scrollIntoView({ behavior: "smooth" })}
               >
                 Interactive Scope Estimator
@@ -513,7 +513,7 @@ ${contactForm.projectDetails || "Please contact me regarding an engineering cons
               <Button
                 size="lg"
                 variant="outline"
-                className="border-amber-400/50 text-amber-300 hover:bg-amber-500 hover:text-slate-950 bg-slate-950/40 backdrop-blur-sm font-bold rounded-full px-6"
+                className="w-full sm:w-auto border-amber-400/50 text-amber-300 hover:bg-amber-500 hover:text-slate-950 bg-slate-950/40 backdrop-blur-sm font-bold rounded-full px-6"
                 onClick={() => setProfileModalOpen(true)}
               >
                 <Eye className="mr-2 h-4 w-4" />
@@ -536,20 +536,20 @@ ${contactForm.projectDetails || "Please contact me regarding an engineering cons
           ))}
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm border-t border-white/10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="text-center text-white/40 text-[10px] tracking-widest uppercase pt-2 pb-0.5">
+        <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm border-t border-white/10 w-full max-w-full overflow-hidden">
+          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+            <p className="text-center text-white/40 text-[9px] sm:text-[10px] tracking-widest uppercase pt-2 pb-0.5 truncate px-2">
               {HERO_SLIDES[heroSlide].caption}
             </p>
-            <div className="grid grid-cols-3 divide-x divide-white/10 py-3">
+            <div className="grid grid-cols-3 divide-x divide-white/10 py-2 sm:py-3">
               {[
                 { value: "20+", label: "Years Experience" },
                 { value: "100+", label: "Projects Completed" },
                 { value: "₦500B+", label: "Project Value" },
               ].map((item) => (
-                <div key={item.label} className="text-center px-4">
-                  <div className="text-amber-400 font-black text-xl">{item.value}</div>
-                  <div className="text-white/50 text-xs">{item.label}</div>
+                <div key={item.label} className="text-center px-1 sm:px-4">
+                  <div className="text-amber-400 font-black text-base sm:text-xl truncate">{item.value}</div>
+                  <div className="text-white/60 text-[10px] sm:text-xs leading-tight line-clamp-1">{item.label}</div>
                 </div>
               ))}
             </div>
@@ -1100,13 +1100,14 @@ ${contactForm.projectDetails || "Please contact me regarding an engineering cons
       </section>
 
       {/* ── CLIENT MARQUEE STRIP ── */}
-      <section className="py-14 bg-gray-50 overflow-hidden border-y border-gray-100">
+      <section className="py-14 bg-gray-50 overflow-hidden border-y border-gray-100 w-full max-w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
           <Reveal direction="up">
             <p className="section-label text-center">Trusted By Institutions, Banks & Government Agencies</p>
           </Reveal>
         </div>
-        <div className="flex animate-marquee gap-6 whitespace-nowrap w-max">
+        <div className="relative w-full max-w-full overflow-hidden">
+          <div className="flex animate-marquee gap-6 whitespace-nowrap w-max">
           {[...CLIENTS, ...CLIENTS].map((name, i) => (
             <span
               key={i}
@@ -1116,6 +1117,7 @@ ${contactForm.projectDetails || "Please contact me regarding an engineering cons
               {name}
             </span>
           ))}
+          </div>
         </div>
       </section>
 
